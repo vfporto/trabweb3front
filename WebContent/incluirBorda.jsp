@@ -1,7 +1,7 @@
 <%@ include file="/estrutura/header.jsp"%>
 <%@ include file="/estrutura/menu.jsp"%>
 
-<%@ include file="/login/controleAcesso.jsp"%>
+<%//@ include file="/login/controleAcesso.jsp"%>
 
 <div class="row">
 	<div class="col-md-4"></div>
@@ -11,7 +11,7 @@
 			<p>Entre com os dados</p>
 			<form method="POST" action="<%=request.getContextPath() %>/borda/crud.jsp">
 			  <input type="hidden" name="acao" value="incluirBorda" >
-			  Tipo da Borda:<br>
+			  EAE!? QUAL A BORDA!<br>
 			  <input type="text" name="nome" class="form-control" >
 			  
 			  Valor Adicional:
