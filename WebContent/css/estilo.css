@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+body{ 
+	background-image:url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
+
+.container{
+	background-color: white;
+	padding-top: 75px;
+	padding-bottom: 75px
+}
+
+.login{
+	background-color: white;
+	margin:30px;
+	padding:60px;
+}
