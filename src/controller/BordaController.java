@@ -4,42 +4,42 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import model.FuncionarioModel;
+import model.BordaModel;
+import util.Configuracao;
 import wsclient.RESTConnectionV2;
 
-public class FuncionarioController {
-	private String url = "http://localhost:8080/TrabalhoWeb3Back/api/funcionario";
+public class BordaController {
+	private String url = Configuracao.apiUrl + "/borda";
 
-	public List<FuncionarioModel> listar(int pagina, int limitePorPagina) {
+	public List<BordaModel> listar(int pagina, int limitePorPagina) {
 		this.url += "/listar";
 		Map<String,Object> queryParams = new HashMap<String,Object>();
 		queryParams.put("pagina", pagina);
 		queryParams.put("limitePorPagina", limitePorPagina);
 		RESTConnectionV2 rest = new RESTConnectionV2();
-		return (List<FuncionarioModel>) rest.getList(url, "GET", FuncionarioModel.class, null, queryParams);
+		return (List<BordaModel>) rest.getList(url, "GET", BordaModel.class, null, queryParams);
 	}
 
-	public void salvarFuncionario(FuncionarioModel funcionario) {
+	public void salvarBorda(BordaModel borda) {
 		this.url += "/salvar";
 		Map<String,Object> queryParams = new HashMap<String,Object>();
 		RESTConnectionV2 rest = new RESTConnectionV2();
-		rest.getObject(url, "POST", null, funcionario, queryParams);
+		rest.getObject(url, "POST", null, borda, queryParams);
 	}
 
-	public void alterarFuncionario(FuncionarioModel funcionario, String nomeArquivoAnterior) {
+	public void alterarBorda(BordaModel borda) {
 		this.url += "/alterar";
 		Map<String,Object> queryParams = new HashMap<String,Object>();
-		queryParams.put("nomeArquivoAnterior", nomeArquivoAnterior);
 		RESTConnectionV2 rest = new RESTConnectionV2();
-		rest.getObject(url, "PUT", null, funcionario, queryParams);
+		rest.getObject(url, "PUT", null, borda, queryParams);
 	}
 
-	public FuncionarioModel buscarFuncionarioPorId(long id) {
+	public BordaModel buscarBordaPorId(long id) {
 		this.url += "/buscar";
 		Map<String,Object> queryParams = new HashMap<String,Object>();
 		queryParams.put("id", id);
 		RESTConnectionV2 rest = new RESTConnectionV2();
-		return (FuncionarioModel) rest.getObject(url, "GET", FuncionarioModel.class, null, queryParams);
+		return (BordaModel) rest.getObject(url, "GET", BordaModel.class, null, queryParams);
 	}
 
 	public void deletarPorId(long id) {

@@ -4,42 +4,43 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import model.FuncionarioModel;
+import model.SaborPizzaModel;
+import util.Configuracao;
 import wsclient.RESTConnectionV2;
 
-public class FuncionarioController {
-	private String url = "http://localhost:8080/TrabalhoWeb3Back/api/funcionario";
+public class SaborPizzaController {
+	
+	private String url = Configuracao.apiUrl + "/saborPizza";
 
-	public List<FuncionarioModel> listar(int pagina, int limitePorPagina) {
+	public List<SaborPizzaModel> listar(int pagina, int limitePorPagina) {
 		this.url += "/listar";
 		Map<String,Object> queryParams = new HashMap<String,Object>();
 		queryParams.put("pagina", pagina);
 		queryParams.put("limitePorPagina", limitePorPagina);
 		RESTConnectionV2 rest = new RESTConnectionV2();
-		return (List<FuncionarioModel>) rest.getList(url, "GET", FuncionarioModel.class, null, queryParams);
+		return (List<SaborPizzaModel>) rest.getList(url, "GET", SaborPizzaModel.class, null, queryParams);
 	}
 
-	public void salvarFuncionario(FuncionarioModel funcionario) {
+	public void salvarSaborPizza(SaborPizzaModel saborPizza) {
 		this.url += "/salvar";
 		Map<String,Object> queryParams = new HashMap<String,Object>();
 		RESTConnectionV2 rest = new RESTConnectionV2();
-		rest.getObject(url, "POST", null, funcionario, queryParams);
+		rest.getObject(url, "POST", null, saborPizza, queryParams);
 	}
 
-	public void alterarFuncionario(FuncionarioModel funcionario, String nomeArquivoAnterior) {
+	public void alterarSaborPizza(SaborPizzaModel saborPizza) {
 		this.url += "/alterar";
 		Map<String,Object> queryParams = new HashMap<String,Object>();
-		queryParams.put("nomeArquivoAnterior", nomeArquivoAnterior);
 		RESTConnectionV2 rest = new RESTConnectionV2();
-		rest.getObject(url, "PUT", null, funcionario, queryParams);
+		rest.getObject(url, "PUT", null, saborPizza, queryParams);
 	}
 
-	public FuncionarioModel buscarFuncionarioPorId(long id) {
+	public SaborPizzaModel buscarSaborPizzaPorId(long id) {
 		this.url += "/buscar";
 		Map<String,Object> queryParams = new HashMap<String,Object>();
 		queryParams.put("id", id);
 		RESTConnectionV2 rest = new RESTConnectionV2();
-		return (FuncionarioModel) rest.getObject(url, "GET", FuncionarioModel.class, null, queryParams);
+		return (SaborPizzaModel) rest.getObject(url, "GET", SaborPizzaModel.class, null, queryParams);
 	}
 
 	public void deletarPorId(long id) {

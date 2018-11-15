@@ -8,50 +8,49 @@
 <%@ page import="model.IngredienteModel"%>
 
 <%
-	ClienteController app = new ClienteController();
-	List<ClienteModel> lista = app.listarClientes();
+	IngredienteController app = new IngredienteController();
+	List<IngredienteModel> lista = app.listarIngredientes();
 %>
 
 <div class="container">
 	<div class="row">
 		<div class="col-md-6">
-			<h1>Clientes</h1>
+			<h1>Ingredientes</h1>
 		</div>
 		<div class="col-md-6 text-right">
-			<a href="<%=request.getContextPath()%>/cliente/incluirCliente.jsp"
+			<a href="<%=request.getContextPath()%>/ingrediente/incluirIngrediente.jsp"
 				class="btn btn-success">Incluir</a>
 		</div>
 		<div class="col-md-12">
 			<table class="table table-hover table-striped">
 				<thead>
 					<th>Nome</th>
-					<th>CPF</th>
-					<th>Login</th>
+					<th>Quantidade Máxima</th>
+					<th>Quantidade Mínima</th>
+					<th>Unidade Medida</th>
 					<th class="mw-200">Ação</th>
 				</thead>
 				<tbody>
 					<%
-    					for(ClienteModel cliente : lista) {
+    					for(IngredienteModel ingrediente : lista) {
     				%>
 					<tr>
-						<td>
-							<% out.print(cliente.getNome()); 
-    						out.print("<br/>");
-    						if(cliente.getDocumentos() != null)
-	    						for(int i=0; i<cliente.getDocumentos().size(); i++){
-	    							out.print("código é: "+ cliente.getDocumentos().get(i).getCodigo()+"<br/>");
-	    						}
-    							%>
+						
+							<td>
+								<% out.print(ingrediente.getNome()); %>
 							</td>
 							<td>
-								<% out.print(cliente.getCpf()); %>
+								<% out.print(ingrediente.getQtMaxima()); %>
 							</td>
 							<td>
-								<% out.print(cliente.getLogin()); %>
+							    <% out.print(ingrediente.getQtMinima()); %>
 							</td>
+							<td>
+							    <% out.print(ingrediente.getUnidadeMedida()); %>  
+							</td>      
 							<td class="mw-200">
-								<a href="<%=request.getContextPath()%>/cliente/editarCliente.jsp?id=<%=cliente.getId() %>"	class="btn btn-primary">Editar</a>
-								<a href="<%=request.getContextPath()%>/cliente/crud.jsp?id=<%=cliente.getId() %>&acao=excluirCliente" onclick="return confirmacaoDelecao()" class="btn btn-danger">Excluir</a>
+								<a href="<%=request.getContextPath()%>/ingrediente/editarIngrediente.jsp?id=<%=ingrediente.getId() %>"	class="btn btn-primary">Editar</a>
+								<a href="<%=request.getContextPath()%>/ingrediente/crud.jsp?id=<%=ingrediente.getId() %>&acao=excluirIngrediente" onclick="return confirmacaoDelecao()" class="btn btn-danger">Excluir</a>
 							</td>
 						</tr>
 						<% } %>
