@@ -4,7 +4,7 @@
 	<div class="col-md-4"></div>
 	<div class="col-md-4">
 		<div class="login">
-			<h1>Login</h1>
+			<h1 class="efeito">Login</h1>
 			<p>Entre com seu Usuário e Senha</p>
 			<form id="Login" method="post"
 				action="<%=request.getContextPath()%>/login/controleLogin.jsp">

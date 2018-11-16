@@ -27,3 +27,23 @@ body{
 	width:35%;
 	padding: 4px 0 0 0;
 }
+/*efeito imagen dentro das letras*/
+.efeito{
+	width: 100%;
+	height: auto;
+	text-align: center;
+	color: #000;
+	font-weight: 700;
+	font-size: 10em;
+	background-image: url(https://images8.alphacoders.com/369/369063.jpg);
+	-webkit-background-clip:text;
+	-webkit-text-fill-color:transparent;
+	background-size: cover;
+	
+}
+/*sidebar menu lateral*/
+
+
+
+
+/*fim sidebar lateral*/
