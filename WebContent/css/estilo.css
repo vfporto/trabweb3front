@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body{ 
-	background-image:url("http://casadapizza.com.br/web/wp-content/uploads/2013/09/bg3.jpg	"); 
+	background-image:url("http://casadapizza.com.br/web/wp-content/uploads/2013/09/bg3.jpg"); 
 	background-repeat:no-repeat; 
 	background-position:center; 
 	background-size:cover; 
@@ -17,6 +17,8 @@ body{
 	background-color: transparent;
 	margin:30px;
 	padding:60px;
+	color:#fff;
+	text-align:center;
 }
 .form-control{
 	background-color:#e8e8e8;

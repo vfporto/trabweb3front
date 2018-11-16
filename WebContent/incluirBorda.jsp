@@ -7,15 +7,15 @@
 	<div class="col-md-4"></div>
 	<div class="col-md-4">
 		<div class="login">
-			<h3 style="font-color:#ffffff;">INCLUIR BORDA</h3>
+			<h3>INCLUIR BORDA</h3>
 			<!-- <p>Entre com os dados</p>-->
 			<form method="POST" action="<%=request.getContextPath() %>/borda/crud.jsp">
 			  <input type="hidden" name="acao" value="incluirBorda" >
-			  EAE!? QUAL A BORDA!<br>
+			  EAE!? QUAL SABOR VAI NA BORDA!<br>
 			  <input type="text" name="nome" class="form-control" >
 			  
 			  Valor Adicional:
-			  <input type="text" name="valorAdicional" class="form-control" >
+			  <input type="number" name="valorAdicional" class="form-control" style="width: 150px;">
 			  
  				<input type="button" onclick="history.back()" class="btn btn-primary" value="Cancelar">
 				<input type="submit" class="btn btn-primary" value="Salvar">
