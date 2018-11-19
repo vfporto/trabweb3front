@@ -9,7 +9,7 @@
 
 <%
 	IngredienteController app = new IngredienteController();
-	List<IngredienteModel> lista = app.listarIngredientes();
+	List<IngredienteModel> lista = app.listar(1, 5);
 %>
 
 <div class="container">
