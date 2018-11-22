@@ -8,7 +8,7 @@
 
 <html>
 <head>
-<title>Sistema</title>
+<title>Sistema Pizzaria</title>
 </head>
 <body id="LoginForm">
 

@@ -1,11 +1,12 @@
 <%@ include file="/estrutura/header.jsp"%>
 
 <div class="row">
-	<div class="col-md-4"></div>
+
+	<div class=""></div>
 	<div class="col-md-4">
 		<div class="login">
 			<h1 class="efeito">Login</h1>
-			<p>Entre com seu Usuário e Senha</p>
+			<p style="color: #000;">Ola! Seja bem vindo. </p>
 			<form id="Login" method="post"
 				action="<%=request.getContextPath()%>/login/controleLogin.jsp">
 				
@@ -23,6 +24,7 @@
 			</form>
 		</div>
 	</div>
+
 	<div class="col-md-4"></div>
 </div>
 
