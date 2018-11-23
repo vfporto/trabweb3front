@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import model.FuncionarioModel;
+import util.Configuracao;
 import wsclient.RESTConnectionV2;
 
 public class LoginController {
@@ -13,7 +14,7 @@ public class LoginController {
 		Map<String,Object> queryParams = new HashMap<String,Object>();
 		queryParams.put("login", login);
 		queryParams.put("senha", senha);
-		String url = "http://localhost:8080/FuncionarioBack/api/login/validar";
+		String url = Configuracao.apiUrl+"/login/validar";
 		FuncionarioModel lista = (FuncionarioModel) rest.getObject(url, "GET", FuncionarioModel.class, null, queryParams);
 		return lista;
 		

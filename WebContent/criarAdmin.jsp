@@ -16,6 +16,7 @@
 	admin.setLogin("admin");
 	admin.setSenha("admin");
 	admin.setNome("Administrador");
+	admin.setCpf("123456");
 	
 	FuncionarioController controller = new FuncionarioController();
 	controller.salvarFuncionario(admin);
