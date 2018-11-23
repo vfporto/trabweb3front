@@ -1,4 +1,4 @@
-<%@ include file="/estrutura/header.jsp"%>
+	<%@ include file="/estrutura/header.jsp"%>
 <%@ include file="/estrutura/menu.jsp"%>
 
 <%@ include file="/login/controleAcesso.jsp"%>
@@ -25,7 +25,7 @@
 	<div class="row">
 
 		<div class="col-md-6">
-			<h1>Funcionarios</h1>
+			<h1 class="efeito">Funcionarios</h1>
 		</div>
 		<div class="col-md-6 text-right">
 			<a href="<%=request.getContextPath()%>/incluirFuncionario.jsp"
