@@ -5,10 +5,11 @@ import java.util.List;
 import java.util.Map;
 
 import model.FuncionarioModel;
+import util.Configuracao;
 import wsclient.RESTConnectionV2;
 
 public class FuncionarioController {
-	private String url = "http://localhost:8080/TrabalhoWeb3Back/api/funcionario";
+	private String url = Configuracao.apiUrl + "/funcionario";
 
 	public List<FuncionarioModel> listar(int pagina, int limitePorPagina) {
 		this.url += "/listar";
