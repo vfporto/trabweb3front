@@ -23,7 +23,7 @@ public class CrudServlet extends HttpServlet {
 		String acao = request.getParameter("acao");
 
 		if (acao.equals("incluirFuncionario")) {
-			//Coletando valores do formulário
+			//Coletando valores do formulï¿½rio
 			String nome = request.getParameter("nome");
 			String cpf = request.getParameter("cpf");
 			String login = request.getParameter("login");
@@ -45,9 +45,9 @@ public class CrudServlet extends HttpServlet {
 			funcionario.setFoto(nomeArquivo);
 			FuncionarioController funcionarioCont = new FuncionarioController();
 			funcionarioCont.salvarFuncionario(funcionario);
-			response.sendRedirect(request.getContextPath()+"/index.jsp");
+			response.sendRedirect(request.getContextPath()+"/funcionario/listarFuncionarios.jsp");
 		} else if (acao.equals("editarFuncionario")) {
-			//Coletando valores do formulário
+			//Coletando valores do formulï¿½rio
 			String id = request.getParameter("id");
 			String nome = request.getParameter("nome");
 			String cpf = request.getParameter("cpf");
@@ -78,12 +78,12 @@ public class CrudServlet extends HttpServlet {
 			funcionario.setFoto(nomeArquivo);
 			FuncionarioController funcionarioCont = new FuncionarioController();
 			funcionarioCont.alterarFuncionario(funcionario,nomeArquivoAnterior);
-			response.sendRedirect(request.getContextPath()+"/index.jsp");
+			response.sendRedirect(request.getContextPath()+"/funcionario/listarFuncionarios.jsp");
 		} else if (acao.equals("excluirFuncionario")) {
 			String id = request.getParameter("id");		
 			FuncionarioController funcionarioCont = new FuncionarioController();
 			funcionarioCont.deletarPorId(Long.parseLong(id));
-			response.sendRedirect(request.getContextPath()+"/index.jsp");
+			response.sendRedirect(request.getContextPath()+"/funcionario/listarFuncionarios.jsp");
 		}
 	}
 

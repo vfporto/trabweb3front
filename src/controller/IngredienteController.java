@@ -7,7 +7,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.BordaModel;
 import model.IngredienteModel;
 import util.Configuracao;
 import wsclient.RESTConnectionV2;
@@ -81,7 +80,7 @@ public class IngredienteController implements BaseController {
 			salvarIngrediente(ing);
 
 		} else if (acao.equals("editar")) {
-			//TODO: Generalizar codigo... está muito repetido
+			//TODO: Generalizar codigo... estï¿½ muito repetido
 			long id = Long.parseLong(request.getParameter("id"));
 			String nome = request.getParameter("nome");
 			double qtEstoque = Double.parseDouble(request.getParameter("qtEstoque"));
@@ -90,6 +89,7 @@ public class IngredienteController implements BaseController {
 			String unidadeMedida = request.getParameter("unidadeMedida");
 
 			IngredienteModel ing = new IngredienteModel();
+			ing.setId(id);
 			ing.setNome(nome);
 			ing.setQtEstoque(qtEstoque);
 			ing.setQtMaxima(qtMaxima);

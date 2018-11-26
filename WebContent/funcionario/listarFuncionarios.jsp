@@ -28,7 +28,7 @@
 			<h1 class="efeito">Funcionarios</h1>
 		</div>
 		<div class="col-md-6 text-right">
-			<a href="<%=request.getContextPath()%>/incluirFuncionario.jsp"
+			<a href="<%=request.getContextPath()%>/funcionario/incluirFuncionario.jsp"
 				class="btn btn-success">Incluir</a>
 		</div>
 		<div class="col-md-12">
@@ -55,7 +55,7 @@
 							<% out.print(funcionario.getLogin()); %>
 						</td>
 						<td class="mw-200"><a
-							href="<%=request.getContextPath()%>/editarFuncionario.jsp?id=<%=funcionario.getId() %>"
+							href="<%=request.getContextPath()%>/funcionario/editarFuncionario.jsp?id=<%=funcionario.getId() %>"
 							class="btn btn-primary">Editar</a> <a
 							href="<%=request.getContextPath()%>/crud?id=<%=funcionario.getId() %>&acao=excluirFuncionario"
 							onclick="return confirmacaoDelecao()" class="btn btn-danger">Excluir</a>

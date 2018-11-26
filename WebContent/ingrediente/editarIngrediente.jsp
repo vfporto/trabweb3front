@@ -25,7 +25,7 @@ IngredienteModel ingrediente = ctl.buscarIngredientePorId(Long.parseLong(id));
 			<form method="POST" action="<%=request.getContextPath() %>/dispatcher">
 			  <input type="hidden" name="classe" value="Ingrediente" >
 			  <input type="hidden" name="acao" value="editar" >
-			  <input type="hidden" name="id" value="<%=ingrediente.getId() %>" >
+			  <input type="hidden" name="id" value="<%=ingrediente.getId()%>" >
 			  Ingrediente:<br>
 			  <input type="text" name="nome" class="form-control" value="<%= ingrediente.getNome() %>" alt="<%= ingrediente.getNome() %>" >
 			  
