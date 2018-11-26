@@ -1,3 +1,5 @@
+<%@page import="controller.TipoPizzaController"%>
+<%@page import="model.TipoPizzaModel"%>
 <%@ include file="/estrutura/header.jsp" %>
 <%@ include file="/estrutura/menu.jsp" %>
 <%@ include file="/login/controleAcesso.jsp" %>
@@ -7,8 +9,8 @@
 
 <%
 String id = request.getParameter("id");
-BordaController bordaCont = new BordaController();
-BordaModel borda = bordaCont.buscarBordaPorId(Long.parseLong(id));
+TipoPizzaController ctl = new TipoPizzaController();
+TipoPizzaModel tipo = ctl.buscarTipoPizzaPorId(Long.parseLong(id));
 %>
 
 
@@ -17,17 +19,18 @@ BordaModel borda = bordaCont.buscarBordaPorId(Long.parseLong(id));
 	<div class="col-md-4"></div>
 	<div class="col-md-4">
 		<div class="login">
-			<h1>Editar Borda</h1>
+			<h1>Editar Tipo de Pizza</h1>
 			<p>Entre com os dados</p>
 						
-			<form method="POST" action="<%=request.getContextPath() %>/borda/crud.jsp">
-			  <input type="hidden" name="acao" value="editarBorda" >
-			  <input type="hidden" name="id" value="<%= borda.getId() %>" >
-			  Tipo de Borda:<br>
-			  <input type="text" name="nome" class="form-control" value="<%= borda.getNome() %>" alt="<%= borda.getNome() %>" >
+			<form method="POST" action="<%=request.getContextPath() %>/dispatcher">
+			  <input type="hidden" name="classe" value="TipoPizza" >
+			  <input type="hidden" name="acao" value="editar" >
+			  <input type="hidden" name="id" value="<%= tipo.getId() %>" >
+			  Tipo de Pizza:<br>
+			  <input type="text" name="nome" class="form-control" value="<%= tipo.getNome() %>" alt="<%= tipo.getNome() %>" >
 			  
 			  Valor Adicional:
-			  <input type="text" name="valorAdicional" class="form-control" value="<%= borda.getValorAdicional() %>" >
+			  <input type="text" name="valorAdicional" class="form-control" value="<%= tipo.getValorAdicional() %>" >
 			 
  
 			<div class="col-md-12">

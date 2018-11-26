@@ -4,11 +4,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import model.BordaModel;
 import model.IngredienteModel;
 import util.Configuracao;
 import wsclient.RESTConnectionV2;
 
-public class IngredienteController {
+public class IngredienteController implements BaseController {
 	
 	private String url = Configuracao.apiUrl + "/ingrediente";
 
@@ -49,6 +53,51 @@ public class IngredienteController {
 		queryParams.put("id", id);
 		RESTConnectionV2 rest = new RESTConnectionV2();
 		rest.getObject(url, "DELETE", null, null, queryParams);
+	}
+	
+	@Override
+	public String executaAcao(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String acao = request.getParameter("acao");
+		String paginaRedirecao = "/ingrediente/listarIngredientes.jsp";
+
+		if (acao.equals("listar")) {
+			// TODO: implementar o listar via servlet dispatcher
+		} else if (acao.equals("excluir")) {
+			String id = request.getParameter("id");
+			deletarPorId(Long.parseLong(id));
+		} else if (acao.equals("incluir")) {
+			String nome = request.getParameter("nome");
+			double qtEstoque = Double.parseDouble(request.getParameter("qtEstoque"));
+			double qtMinima = Double.parseDouble(request.getParameter("qtEstoque"));
+			double qtMaxima = Double.parseDouble(request.getParameter("qtEstoque"));;
+			String unidadeMedida = request.getParameter("unidadeMedida");
+
+			IngredienteModel ing = new IngredienteModel();
+			ing.setNome(nome);
+			ing.setQtEstoque(qtEstoque);
+			ing.setQtMaxima(qtMaxima);
+			ing.setQtMinima(qtMinima);
+			salvarIngrediente(ing);
+
+		} else if (acao.equals("editar")) {
+			//TODO: Generalizar codigo... está muito repetido
+			long id = Long.parseLong(request.getParameter("id"));
+			String nome = request.getParameter("nome");
+			double qtEstoque = Double.parseDouble(request.getParameter("qtEstoque"));
+			double qtMinima = Double.parseDouble(request.getParameter("qtEstoque"));
+			double qtMaxima = Double.parseDouble(request.getParameter("qtEstoque"));;
+			String unidadeMedida = request.getParameter("unidadeMedida");
+
+			IngredienteModel ing = new IngredienteModel();
+			ing.setNome(nome);
+			ing.setQtEstoque(qtEstoque);
+			ing.setQtMaxima(qtMaxima);
+			ing.setQtMinima(qtMinima);
+			alterarIngrediente(ing);
+
+		}
+
+		return paginaRedirecao;
 	}
 
 }

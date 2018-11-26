@@ -7,11 +7,12 @@
 	<div class=""></div>
 	<div class="col-md-4">
 		<div class="login">
-			<h2 class="efeito" style="font-size:4em !important;">INCLUIR BORDA</h2><br>
+			<h2 class="efeito" style="font-size:4em !important;">INCLUIR TIPO DE PIZZA</h2><br>
 			
-			<form method="POST" action="<%=request.getContextPath() %>/borda/crud.jsp">
-			  <input type="hidden" name="acao" value="incluirBorda" >
-			  EAE!? QUAL SABOR VAI NA BORDA!<br>
+			<form method="POST" action="<%=request.getContextPath() %>/dispatcher">
+			<input type="hidden" name="classe" value="TipoPizza" >
+			  <input type="hidden" name="acao" value="incluir" >
+			  Tipo: <br>
 			  <input type="text" name="nome" class="form-control" ><br>
 			  
 			  Valor Adicional R$:

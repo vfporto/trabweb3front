@@ -24,7 +24,7 @@ FuncionarioModel funcionario = funcionarioCont.buscarFuncionarioPorId( Long.pars
 			  <input type="hidden" name="id" value="<%= funcionario.getId() %>" >
 			  <% if(funcionario.getFoto() != null){ %>
 			  	<input type="hidden" name="nomeArquivoAnterior" value="<%= funcionario.getFoto() %>" >
-			  	<img src="http://localhost:8080/FuncionarioBack/uploads/<%= funcionario.getFoto() %>" class="card-img-top">
+			  	<img src="http://localhost:8080/TrabalhoWeb3Back/uploads/<%= funcionario.getFoto() %>" class="card-img-top">
 			  <% } %>
 			  Nome:<br>
 			  <input type="text" name="nome" class="form-control" value="<%= funcionario.getNome() %>" alt="<%= funcionario.getNome() %>" >

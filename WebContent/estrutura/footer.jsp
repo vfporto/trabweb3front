@@ -11,7 +11,7 @@
 			var paginaAtual = 1;
 			if (results != null)
 				paginaAtual = results[1];
-			location.href = "index.jsp?pag=" + (parseInt(paginaAtual) + 1);
+			location.href = location.origin + location.pathname + "?pag=" + (parseInt(paginaAtual) + 1);
 		}
 
 		function paginaAnterior() {
@@ -21,7 +21,7 @@
 			if (results != null)
 				paginaAtual = results[1];
 			if (parseInt(paginaAtual) > 1)
-				location.href = "index.jsp?pag=" + (parseInt(paginaAtual) - 1);
+				location.href = location.origin + location.pathname + "?pag=" + (parseInt(paginaAtual) - 1);
 		}
 	</script>
 	

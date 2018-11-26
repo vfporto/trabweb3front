@@ -14,9 +14,33 @@
   <div class="collapse navbar-collapse" id="navbarCollapse">
   <ul class="navbar-nav">
 
+	<li class="nav-item">
+		<a class="nav-link" href="<%=request.getContextPath() %>/ingrediente/listarIngredientes.jsp">Ingredientes</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="<%=request.getContextPath() %>/tipoPizza/listarTipoPizzas.jsp">Tipos de Pizza</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="<%=request.getContextPath() %>/tamanho/listarTamanhos.jsp">Tamanhos</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="<%=request.getContextPath() %>/saborPizza/listarSaboresPizza.jsp">Sabores de Pizza</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="<%=request.getContextPath() %>/borda/listarBordas.jsp">Tipos de Borda</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="<%=request.getContextPath() %>/funcionario/listarFuncionarios.jsp">Ingredientes</a>
+	</li>
+	
+
+
+
     <li class="nav-item">
       <a class="nav-link" href="<%=request.getContextPath() %>/login/deslogar.jsp">Sair</a>
     </li>
+
+
   </ul>
   </div>
 </nav>

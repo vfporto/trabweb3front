@@ -7,6 +7,7 @@ public class SaborPizzaModel {
 	private long id;
 	private TipoPizzaModel tipoPizza;
 	private String nome;
+	private String descricao;
 	private double valorAdicional;
 	private String foto;
 	private List<SaborPizzaIngredienteModel> listaIngredientes;
@@ -33,6 +34,14 @@ public class SaborPizzaModel {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 	public double getValorAdicional() {

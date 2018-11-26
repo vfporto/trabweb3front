@@ -4,11 +4,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import model.TipoPizzaModel;
 import util.Configuracao;
 import wsclient.RESTConnectionV2;
 
-public class TipoPizzaController {
+public class TipoPizzaController implements BaseController {
 	
 	private String url = Configuracao.apiUrl + "/tipoPizza";
 
@@ -19,6 +22,12 @@ public class TipoPizzaController {
 		queryParams.put("limitePorPagina", limitePorPagina);
 		RESTConnectionV2 rest = new RESTConnectionV2();
 		return (List<TipoPizzaModel>) rest.getList(url, "GET", TipoPizzaModel.class, null, queryParams);
+	}
+	
+	public List<TipoPizzaModel> listarTudo() {
+		this.url += "/listarTudo";
+		RESTConnectionV2 rest = new RESTConnectionV2();
+		return (List<TipoPizzaModel>) rest.getList(url, "GET", TipoPizzaModel.class, null, null);
 	}
 
 	public void salvarTipoPizza(TipoPizzaModel tipo) {
@@ -50,5 +59,41 @@ public class TipoPizzaController {
 		RESTConnectionV2 rest = new RESTConnectionV2();
 		rest.getObject(url, "DELETE", null, null, queryParams);
 	}
+	
+	@Override
+	public String executaAcao(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String acao = request.getParameter("acao");
+		String paginaRedirecao = "/tipoPizza/listarTipoPizzas.jsp";
+
+		if (acao.equals("listar")) {
+			// TODO: implementar o listar via servlet dispatcher
+		} else if (acao.equals("excluir")) {
+			String id = request.getParameter("id");
+			deletarPorId(Long.parseLong(id));
+		} else if (acao.equals("incluir")) {
+			String nome = request.getParameter("nome");
+			String valorAdicional = request.getParameter("valorAdicional");
+
+			TipoPizzaModel tipoPizza = new TipoPizzaModel();
+			tipoPizza.setNome(nome);
+			tipoPizza.setValorAdicional(Float.parseFloat(valorAdicional));
+			salvarTipoPizza(tipoPizza);
+
+		} else if (acao.equals("editar")) {
+			String id = request.getParameter("id");
+			String nome = request.getParameter("nome");
+			String valorAdicional = request.getParameter("valorAdicional");
+
+			TipoPizzaModel tipoPizza = new TipoPizzaModel();
+			tipoPizza.setId(Long.parseLong(id));
+			tipoPizza.setNome(nome);
+			tipoPizza.setValorAdicional(Float.parseFloat(valorAdicional));
+			alterarTipoPizza(tipoPizza);
+
+		}
+
+		return paginaRedirecao;
+	}
+
 
 }

@@ -1,3 +1,5 @@
+<%@page import="controller.TipoPizzaController"%>
+<%@page import="model.TipoPizzaModel"%>
 <%@page import="model.BordaModel"%>
 <%@page import="controller.BordaController"%>
 <%@ include file="/estrutura/header.jsp"%>
@@ -19,8 +21,8 @@
 %>
 
 <%
-	BordaController app = new BordaController();
-	List<BordaModel> lista = app.listar(paginaAtual, limitePorPagina);
+	TipoPizzaController app = new TipoPizzaController();
+	List<TipoPizzaModel> lista = app.listar(paginaAtual, limitePorPagina);
 	
 %>
 
@@ -28,35 +30,39 @@
 	<div class="row">
 
 		<div class="col-md-6">
-			<h1>Bordas</h1>
+			<h1>Tamanhos de Pizza (NÃO FUNCIONA AINDA! TÁ FALTANDO LÓGICA NO BACKEND E O NO FRONT END...)</h1>
 		</div>
 		<div class="col-md-6 text-right">
-			<a href="<%=request.getContextPath()%>/incluirBorda.jsp"
+			<a href="<%=request.getContextPath()%>/tamanho/incluirTamanho.jsp"
 				class="btn btn-success">Incluir</a>
 		</div>
 		<div class="col-md-12">
 			<table class="table table-hover table-striped">
 				<thead>
-					<th>Borda</th>
-					<th>Valor adicional</th>
+					<th>Tamanho</th>
+					<th>Descricao</th>
+					<th>Preço</th>
+					<th>Num. Máx. Sabores</th>
+					<th>Fator Mult.</th>
+					
 					<th class="mw-200">Ação</th>
 				</thead>
 				<tbody>
 					<%
 					if(lista != null)
-						for(BordaModel borda : lista) {
+						for(TipoPizzaModel tipo : lista) {
 					%>
 					<tr>
 						<td>
-							<% out.print(borda.getNome()); %>
+							<% out.print(tipo.getNome()); %>
 						</td>
 						<td>
-							<% out.print(borda.getValorAdicional()); %>
+							<% out.print(tipo.getValorAdicional()); %>
 						</td>
 						<td class="mw-200"><a
-							href="<%=request.getContextPath()%>/editarBorda.jsp?id=<%=borda.getId() %>"
+							href="<%=request.getContextPath()%>/tipoPizza/editarTipoPizza.jsp?id=<%=tipo.getId() %>"
 							class="btn btn-primary">Editar</a> <a
-							href="<%=request.getContextPath()%>/crudBorda?id=<%=borda.getId() %>&acao=excluirBorda"
+							href="<%=request.getContextPath()%>/dispatcher?classe=TipoPizza&id=<%=tipo.getId() %>&acao=excluir"
 							onclick="return confirmacaoDelecao()" class="btn btn-danger">Excluir</a>
 						</td>
 					</tr>

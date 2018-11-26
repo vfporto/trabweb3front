@@ -31,7 +31,7 @@ public class RESTConnectionV2 {
 				if(!parteUrl.equals("")) {
 					fullUrl = fullUrl+"?"+parteUrl;
 				}
-			System.out.println(fullUrl);
+			System.out.println("fullUrl: "+fullUrl);
 			URL url_ = new URL(fullUrl);
 			con = (HttpURLConnection) url_.openConnection();
 
