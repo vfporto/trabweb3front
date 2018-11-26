@@ -68,8 +68,8 @@ public class IngredienteController implements BaseController {
 		} else if (acao.equals("incluir")) {
 			String nome = request.getParameter("nome");
 			double qtEstoque = Double.parseDouble(request.getParameter("qtEstoque"));
-			double qtMinima = Double.parseDouble(request.getParameter("qtEstoque"));
-			double qtMaxima = Double.parseDouble(request.getParameter("qtEstoque"));;
+			double qtMinima = Double.parseDouble(request.getParameter("qtMinima"));
+			double qtMaxima = Double.parseDouble(request.getParameter("qtMaxima"));;
 			String unidadeMedida = request.getParameter("unidadeMedida");
 
 			IngredienteModel ing = new IngredienteModel();
@@ -77,6 +77,7 @@ public class IngredienteController implements BaseController {
 			ing.setQtEstoque(qtEstoque);
 			ing.setQtMaxima(qtMaxima);
 			ing.setQtMinima(qtMinima);
+			ing.setUnidadeMedida(unidadeMedida);
 			salvarIngrediente(ing);
 
 		} else if (acao.equals("editar")) {
@@ -84,8 +85,8 @@ public class IngredienteController implements BaseController {
 			long id = Long.parseLong(request.getParameter("id"));
 			String nome = request.getParameter("nome");
 			double qtEstoque = Double.parseDouble(request.getParameter("qtEstoque"));
-			double qtMinima = Double.parseDouble(request.getParameter("qtEstoque"));
-			double qtMaxima = Double.parseDouble(request.getParameter("qtEstoque"));;
+			double qtMinima = Double.parseDouble(request.getParameter("qtMinima"));
+			double qtMaxima = Double.parseDouble(request.getParameter("qtMaxima"));;
 			String unidadeMedida = request.getParameter("unidadeMedida");
 
 			IngredienteModel ing = new IngredienteModel();
@@ -93,6 +94,7 @@ public class IngredienteController implements BaseController {
 			ing.setQtEstoque(qtEstoque);
 			ing.setQtMaxima(qtMaxima);
 			ing.setQtMinima(qtMinima);
+			ing.setUnidadeMedida(unidadeMedida);
 			alterarIngrediente(ing);
 
 		}

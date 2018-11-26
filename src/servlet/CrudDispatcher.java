@@ -23,7 +23,8 @@ public class CrudDispatcher extends HttpServlet {
 			
 			String pagina = controller.executaAcao(request, response);
 			
-			request.getRequestDispatcher(pagina).forward(request, response);
+			//request.getRequestDispatcher(pagina).forward(request, response);
+			response.sendRedirect(request.getContextPath() + pagina);
 			
 		} catch (Exception e) {
 			throw new ServletException("Excecao: Nao foi possivel instanciar Class.forName. ", e);

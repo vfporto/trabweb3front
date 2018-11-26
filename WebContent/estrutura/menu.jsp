@@ -30,7 +30,7 @@
 		<a class="nav-link" href="<%=request.getContextPath() %>/borda/listarBordas.jsp">Tipos de Borda</a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link" href="<%=request.getContextPath() %>/funcionario/listarFuncionarios.jsp">Ingredientes</a>
+		<a class="nav-link" href="<%=request.getContextPath() %>/funcionario/listarFuncionarios.jsp">Funcionários</a>
 	</li>
 	
 

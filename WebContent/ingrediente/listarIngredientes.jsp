@@ -1,15 +1,10 @@
-<%@page import="controller.TipoPizzaController"%>
-<%@page import="model.TipoPizzaModel"%>
-<%@page import="model.BordaModel"%>
-<%@page import="controller.BordaController"%>
+<%@page import="model.IngredienteModel"%>
+<%@page import="controller.IngredienteController"%>
+<%@page import="java.util.List"%>
+
 <%@ include file="/estrutura/header.jsp"%>
 <%@ include file="/estrutura/menu.jsp"%>
-
 <%@ include file="/login/controleAcesso.jsp"%>
-
-<%@ page import="controller.FuncionarioController"%>
-<%@ page import="java.util.List"%>
-<%@ page import="model.FuncionarioModel"%>
 
 <%
 	int limitePorPagina = 3;
@@ -21,8 +16,8 @@
 %>
 
 <%
-	TipoPizzaController app = new TipoPizzaController();
-	List<TipoPizzaModel> lista = app.listar(paginaAtual, limitePorPagina);
+	IngredienteController controller = new IngredienteController();
+	List<IngredienteModel> lista = controller.listar(paginaAtual, limitePorPagina);
 	
 %>
 
@@ -30,35 +25,45 @@
 	<div class="row">
 
 		<div class="col-md-6">
-			<h1>Tipos de Pizza</h1>
+			<h1>INGREDIENTES</h1>
 		</div>
 		<div class="col-md-6 text-right">
-			<a href="<%=request.getContextPath()%>/tipoPizza/incluirTipoPizza.jsp"
+			<a href="<%=request.getContextPath()%>/ingrediente/incluirIngrediente.jsp"
 				class="btn btn-success">Incluir</a>
 		</div>
 		<div class="col-md-12">
 			<table class="table table-hover table-striped">
 				<thead>
-					<th>Borda</th>
-					<th>Valor adicional</th>
-					<th class="mw-200">Ação</th>
+					<th>Ingrediente</th>
+					<th>Qt. Estoque</th>
+					<th>Qt. Mín.</th>
+					<th>Qt. Máx.</th>
+					<th>Un. Medida</th>
 				</thead>
 				<tbody>
 					<%
 					if(lista != null)
-						for(TipoPizzaModel tipo : lista) {
+						for(IngredienteModel ingrediente : lista) {
 					%>
 					<tr>
 						<td>
-							<% out.print(tipo.getNome()); %>
+							<% out.print(ingrediente.getNome()); %>
 						</td>
 						<td>
-							<% out.print(tipo.getValorAdicional()); %>
+							<% out.print(ingrediente.getQtEstoque()); %>
 						</td>
-						<td class="mw-200"><a
-							href="<%=request.getContextPath()%>/tipoPizza/editarTipoPizza.jsp?id=<%=tipo.getId() %>"
-							class="btn btn-primary">Editar</a> <a
-							href="<%=request.getContextPath()%>/dispatcher?classe=TipoPizza&id=<%=tipo.getId() %>&acao=excluir"
+						<td>
+							<% out.print(ingrediente.getQtMinima()); %>
+						</td>
+						<td>
+							<% out.print(ingrediente.getQtMaxima()); %>
+						</td>
+						<td>
+							<% out.print(ingrediente.getUnidadeMedida()); %>
+						</td>
+						<td class="mw-200">
+							<a href="<%=request.getContextPath()%>/ingrediente/editarIngrediente.jsp?id=<%=ingrediente.getId() %>" class="btn btn-primary">Editar</a> 
+							<a href="<%=request.getContextPath()%>/dispatcher?classe=Ingrediente&id=<%=ingrediente.getId() %>&acao=excluir"
 							onclick="return confirmacaoDelecao()" class="btn btn-danger">Excluir</a>
 						</td>
 					</tr>
