@@ -8,7 +8,12 @@
 
 <html>
 <head>
-<title>Sistema Pizzaria</title>
+<title>Sistema Para Pizzaria</title>
 </head>
 <body id="LoginForm">
+<!-- <div style="margin-top: 25%;">
+<h1>S.G.P</h1>
+<h2>Sistema de Gerenciamento para Pizzarias</h2>
+<h4>Jefferson, Fabricio, Gilberto</h4></div> -->
+ 
 

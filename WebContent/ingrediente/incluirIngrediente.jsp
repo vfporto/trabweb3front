@@ -5,31 +5,31 @@
 
 <div class="row">
 	<div class="col-md-4"></div>
-	<div class="col-md-4">
+	<div class="col-md-10">
 		<div class="login">
-			<h1>Incluir Ingrediente</h1>
+			<h2 class="efeito2">Incluir Ingrediente</h2>
 			<p>Entre com os dados</p>
-			<form method="POST" action="<%=request.getContextPath() %>/dispatcher">
+			<form style="font-weight: 700; text-align:left;" method="POST" action="<%=request.getContextPath() %>/dispatcher">
 				<input type="hidden" name="classe" value="Ingrediente">
 				<input type="hidden" name="acao" value="incluir" >
 			  
 			  Incluir o Ingrediente :<br>
-			  <input type="text" name="nome" class="form-control" >
+			  <input type="text" name="nome" class="form-control" ><br>
 			  
 			  Quantidade Máxima : <br>
-			  <input type="text" name="qtMaxima" class="form-control" >
+			  <input type="text" name="qtMaxima" class="form-control-sm" ><br>
 			  
 			  Quantidade Mínima : <br>
-			  <input type="text" name="qtMinima" class="form-control" >
+			  <input type="text" name="qtMinima" class="form-control-sm" ><br>
 			  
-			  Quantidade em Estoque: <br>
-			  <input type="text" name="qtEstoque" class="form-control" >
+			  Quantidade Estoque: <br>
+			  <input type="text" name="qtEstoque" class="form-control-sm" ><br>
 			 
 			  Unidade Medida : <br>
-			  <input type="text" name="unidadeMedida" class="form-control" >
+			  <input type="text" name="unidadeMedida" class="form-control-sm" ><br>
 			  
 			  
-			  
+			  <br>
 				<input type="button" onclick="history.back()" class="btn btn-default" value="Cancelar">
 				<input type="submit" class="btn btn-primary" value="Salvar">
 			

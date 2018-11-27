@@ -3,20 +3,20 @@
 <div class="row">
 
 	<div class=""></div>
-	<div class="col-md-4">
+	<div class="col-md-10">
 		<div class="login">
-			<h1 class="efeito">Login</h1>
+			<h2 class="efeito">Login</h2>
 			<p style="color: #000;">Ola! Seja bem vindo. </p>
 			<form id="Login" method="post"
 				action="<%=request.getContextPath()%>/login/controleLogin.jsp">
 				
 				<div class="form-group">
-					<input type="text" class="form-control" id="login" required
+					<input type="text" class="form-control-sm" id="login" required
 						name="login" placeholder="Login">
 				</div>
 
 				<div class="form-group">
-					<input type="password" class="form-control" id="senha" required
+					<input type="password" class="form-control-sn" id="senha" required
 						name="senha" placeholder="Senha">
 				</div>
 				

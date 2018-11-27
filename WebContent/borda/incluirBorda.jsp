@@ -5,11 +5,14 @@
 
 <div class="row">
 	<div class=""></div>
-	<div class="col-md-4">
+	<div class="col-md-10">
 		<div class="login">
-			<h2 class="efeito" style="font-size:4em !important;">INCLUIR BORDA</h2><br>
+		
+			<h2 class="efeito2">Incluir Borda</h2>
+			<p>Entre com os seguintes dados:</p>
 			
 			<form method="POST" action="<%=request.getContextPath() %>/dispatcher">
+			 
 			<input type="hidden" name="classe" value="Borda" >
 			  <input type="hidden" name="acao" value="incluir" >
 			  Sabor da Borda: <br>
@@ -18,9 +21,9 @@
 			  Valor Adicional R$:
 			  <center><input type="text" name="valorAdicional" class="form-control" style="width: 250px;"><center><br>
 			  
- 				<input type="button" onclick="history.back()" class="btn btn-primary" value="Cancelar">
+ 				<input type="button" onclick="history.back()" class="btn btn-default" value="Cancelar">
 				<input type="submit" class="btn btn-primary" value="Salvar">
- 			
+ 		 
 			</form> 
 		</div>
 	</div>

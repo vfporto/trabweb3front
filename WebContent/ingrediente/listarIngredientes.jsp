@@ -24,10 +24,10 @@
 <div class="container">
 	<div class="row">
 
-		<div class="col-md-6">
-			<h1>INGREDIENTES</h1>
+		<div class="col-md-10">
+			<h2 class="efeito2">Ingredientes</h2>
 		</div>
-		<div class="col-md-6 text-right">
+		<div class="col-md-10 text-right">
 			<a href="<%=request.getContextPath()%>/ingrediente/incluirIngrediente.jsp"
 				class="btn btn-success">Incluir</a>
 		</div>
@@ -62,9 +62,9 @@
 							<% out.print(ingrediente.getUnidadeMedida()); %>
 						</td>
 						<td class="mw-200">
-							<a href="<%=request.getContextPath()%>/ingrediente/editarIngrediente.jsp?id=<%=ingrediente.getId() %>" class="btn btn-primary">Editar</a> 
+							<a href="<%=request.getContextPath()%>/ingrediente/editarIngrediente.jsp?id=<%=ingrediente.getId() %>" class="btn btn-outline-warning">Editar</a> 
 							<a href="<%=request.getContextPath()%>/dispatcher?classe=Ingrediente&id=<%=ingrediente.getId() %>&acao=excluir"
-							onclick="return confirmacaoDelecao()" class="btn btn-danger">Excluir</a>
+							onclick="return confirmacaoDelecao()" class="btn btn-outline-danger btn-sm">Excluir</a>
 						</td>
 					</tr>
 					<% } %>
@@ -79,13 +79,13 @@
 			<button onclick="paginaAnterior()" type="button"
 				<%if (paginaAtual == 1)
 				         out.print("disabled"); %>
-				class="btn btn-lg btn-primary">Página Anterior</button>
+				class="btn btn-secondary btn-sm">Página Anterior</button>
 			<button onclick="proximaPagina()" type="button"
 				<%if (lista == null)
 				         out.print("disabled");
 			          else if (lista.size() == 0)
 				               out.print("disabled");%>
-				class="btn btn-secondary btn-lg">Próxima Página</button>
+				class="btn btn-secondary btn-sm">Próxima Página</button>
 
 		</div>
 

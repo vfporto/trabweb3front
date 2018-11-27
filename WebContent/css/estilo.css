@@ -7,14 +7,16 @@ body{
 	background-size:cover; 
 	padding:10px;
 	margin-rigth:20%;
+	width:53%;
 	
 	}
 	
 
 .container{
-	background-color: white;
+	background-color: transparent !important;
 	padding-top: 20%;
 	padding-bottom: 75px;
+	width:auto;
 	
 }
 
@@ -28,11 +30,17 @@ body{
 }
 .form-control{
 	background-color:#e8e8e8;
+	 
 }
-.btn-primary{
-	width:35%;
-	padding: 4px 0 0 0;
+.btn-secondary{
+	width:25%;
+	border-radius:12px;
+	color:#000;
+	font-weight:700;
+	padding:5px;
 }
+
+
 /*efeito imagen dentro das letras*/
 .efeito{
 	width: 100%;
@@ -40,19 +48,27 @@ body{
 	text-align: center;
 	color: #000;
 	font-weight: 700;
-	font-size: 5em;
+	font-size: 4em;
 	background-image: url("https://clip2art.com/images/pizza-clipart-wallpaper-5.jpg");
 	-webkit-background-clip:text;
 	-webkit-text-fill-color:transparent;
 	background-size: cover;
 	
 }
-button{
-	background-color:transparent;
-	color:#fff;
-	text-align:center;
-	background-size:cover;
-	background-image:url("https://image.freepik.com/vetores-gratis/seamless-pattern-fast-food-pizza-black-background_24908-2190.jpg")
+.efeito2{
+	width: 100%;
+	height: auto;
+	text-align: center;
+	color: #000;
+	font-weight: 700;
+	font-size: 2em;
+	background-image: url("https://image.shutterstock.com/image-vector/pizza-seamless-pattern-260nw-755047744.jpg");
+	-webkit-background-clip:text;
+	-webkit-text-fill-color:transparent;
+	background-size: cover;
+
+#menu-principal{
+ 
 }
 
 

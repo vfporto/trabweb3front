@@ -16,30 +16,31 @@ IngredienteModel ingrediente = ctl.buscarIngredientePorId(Long.parseLong(id));
 
 
 <div class="row">
-	<div class="col-md-4"></div>
-	<div class="col-md-4">
+	<div class="col-md-6"></div>
+	<div class="col-md-10">
 		<div class="login">
-			<h1>Editar Ingrediente</h1>
-			<p>Entre com os dados</p>
+			<h2 class="efeito2">Editar Ingrediente</h2>
+			<p>Entre com os seguintes dados:</p>
 						
-			<form method="POST" action="<%=request.getContextPath() %>/dispatcher">
+			<form style="text-align:left; font-weight: 700;" method="POST" action="<%=request.getContextPath() %>/dispatcher">
 			  <input type="hidden" name="classe" value="Ingrediente" >
 			  <input type="hidden" name="acao" value="editar" >
 			  <input type="hidden" name="id" value="<%=ingrediente.getId()%>" >
 			  Ingrediente:<br>
-			  <input type="text" name="nome" class="form-control" value="<%= ingrediente.getNome() %>" alt="<%= ingrediente.getNome() %>" >
+			  <input type="text" name="nome" class="form-control" value="<%= ingrediente.getNome() %>" alt="<%= ingrediente.getNome() %>" style="width: 70%;"><br>
 			  
 			  Quantidade Máxima : <br>
-			  <input type="text" name="qtMaxima" class="form-control"  value="<%=ingrediente.getQtMaxima() %>">
+			  <input type="text" name="qtMaxima" class="form-control-sm"  value="<%=ingrediente.getQtMaxima() %>"><br>
 			  
 			  Quantidade Mínima : <br>
-			  <input type="text" name="qtMinima" class="form-control" value="<%=ingrediente.getQtMinima() %>">
+			  <input type="text" name="qtMinima" class="form-control-sm" value="<%=ingrediente.getQtMinima() %>"><br>
 			  
 			  Quantidade em Estoque: <br>
-			  <input type="text" name="qtEstoque" class="form-control" value="<%=ingrediente.getQtEstoque() %>">
+			  <input type="text" name="qtEstoque" class="form-control-sm" value="<%=ingrediente.getQtEstoque() %>"><br>
 			 
 			  Unidade Medida : <br>
-			  <input type="text" name="unidadeMedida" class="form-control" value="<%=ingrediente.getUnidadeMedida() %>">
+			  <input type="text" name="unidadeMedida" class="form-control-sm" value="<%=ingrediente.getUnidadeMedida() %>">
+			  <br>
 			  
  
 				<input type="button" onclick="history.back()" class="btn btn-default" value="Cancelar">	
@@ -50,7 +51,7 @@ IngredienteModel ingrediente = ctl.buscarIngredientePorId(Long.parseLong(id));
 
 		</div>
 	</div>
-	<div class="col-md-4"></div>
+	<div class="col-md-12"></div>
 </div>
 
 

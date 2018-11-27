@@ -27,14 +27,15 @@
 <div class="container">
 	<div class="row">
 
-		<div class="col-md-6">
-			<h1>Bordas</h1>
+		<div class="col-md-10">
+			<h2 class="efeito2">Bordas</h2>
+			 
 		</div>
-		<div class="col-md-6 text-right">
+		<div class="col-md-10 text-right">
 			<a href="<%=request.getContextPath()%>/borda/incluirBorda.jsp"
 				class="btn btn-success">Incluir</a>
 		</div>
-		<div class="col-md-12">
+		<div class="col-md-10">
 			<table class="table table-hover table-striped">
 				<thead>
 					<th>Borda</th>
@@ -55,9 +56,9 @@
 						</td>
 						<td class="mw-200"><a
 							href="<%=request.getContextPath()%>/borda/editarBorda.jsp?id=<%=borda.getId() %>"
-							class="btn btn-primary">Editar</a> <a
+							class="btn btn-outline-warning btn-sm">Editar</a> <a
 							href="<%=request.getContextPath()%>/dispatcher?classe=Borda&id=<%=borda.getId() %>&acao=excluir"
-							onclick="return confirmacaoDelecao()" class="btn btn-danger">Excluir</a>
+							onclick="return confirmacaoDelecao()" class="btn btn-outline-danger btn-sm">Excluir</a>
 						</td>
 					</tr>
 					<% } %>
@@ -72,13 +73,13 @@
 			<button onclick="paginaAnterior()" type="button"
 				<%if (paginaAtual == 1)
 				         out.print("disabled"); %>
-				class="btn btn-lg btn-primary">Página Anterior</button>
+				class="btn btn-sm btn-secondary">Página Anterior</button>
 			<button onclick="proximaPagina()" type="button"
 				<%if (lista == null)
 				         out.print("disabled");
 			          else if (lista.size() == 0)
 				               out.print("disabled");%>
-				class="btn btn-secondary btn-lg">Próxima Página</button>
+				class="btn btn-secondary btn-sm">Próxima Página</button>
 
 		</div>
 

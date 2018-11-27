@@ -57,9 +57,9 @@
 						</td>
 						<td class="mw-200"><a
 							href="<%=request.getContextPath()%>/tipoPizza/editarTipoPizza.jsp?id=<%=tipo.getId() %>"
-							class="btn btn-primary">Editar</a> <a
+							class="btn btn-outline-warning btn-sm">Editar</a> <a
 							href="<%=request.getContextPath()%>/dispatcher?classe=TipoPizza&id=<%=tipo.getId() %>&acao=excluir"
-							onclick="return confirmacaoDelecao()" class="btn btn-danger">Excluir</a>
+							onclick="return confirmacaoDelecao()" class="btn btn-outline-danger btn-sm">Excluir</a>
 						</td>
 					</tr>
 					<% } %>
@@ -74,13 +74,13 @@
 			<button onclick="paginaAnterior()" type="button"
 				<%if (paginaAtual == 1)
 				         out.print("disabled"); %>
-				class="btn btn-lg btn-primary">Página Anterior</button>
+				class="btn btn-sm btn-secondary">Página Anterior</button>
 			<button onclick="proximaPagina()" type="button"
 				<%if (lista == null)
 				         out.print("disabled");
 			          else if (lista.size() == 0)
 				               out.print("disabled");%>
-				class="btn btn-secondary btn-lg">Próxima Página</button>
+				class="btn btn-secondary btn-sm">Próxima Página</button>
 
 		</div>
 

@@ -15,10 +15,10 @@ BordaModel borda = bordaCont.buscarBordaPorId(Long.parseLong(id));
 
 <div class="row">
 	<div class="col-md-4"></div>
-	<div class="col-md-4">
+	<div class="col-md-10">
 		<div class="login">
-			<h1>Editar Borda</h1>
-			<p>Entre com os dados</p>
+			<h2 class="efeito2">Editar Borda</h2]>
+			<p>Entre com os seguintes dados:</p>
 						
 			<form method="POST" action="<%=request.getContextPath() %>/dispatcher">
 			  <input type="hidden" name="classe" value="Borda" >

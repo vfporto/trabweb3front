@@ -5,15 +5,16 @@
 
 <div class="row">
 	<div class=""></div>
-	<div class="col-md-4">
+	<div class="col-md-10">
 		<div class="login">
-			<h2 class="efeito" style="font-size:4em !important;">INCLUIR TIPO DE PIZZA</h2><br>
+			<h2 class="efeito2">INCLUIR TIPO DE PIZZA</h2><br>
+			<p>Entre com os seguintes dados:</p>
 			
 			<form method="POST" action="<%=request.getContextPath() %>/dispatcher">
 			<input type="hidden" name="classe" value="TipoPizza" >
-			  <input type="hidden" name="acao" value="incluir" >
+			  <input type="hidden" name="acao" value="incluir">
 			  Tipo: <br>
-			  <input type="text" name="nome" class="form-control" ><br>
+			  <input type="text" name="nome" class="form-control"><br>
 			  
 			  Valor Adicional R$:
 			  <center><input type="text" name="valorAdicional" class="form-control" style="width: 250px;"><center><br>
