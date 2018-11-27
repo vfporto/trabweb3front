@@ -15,29 +15,29 @@
   <ul class="navbar-nav">
 
 	<li class="nav-item">
-		<a class="nav-link" href="<%=request.getContextPath() %>/ingrediente/listarIngredientes.jsp">Ingredientes</a>
+		<a class="nav-link" href="<%=request.getContextPath() %>/ingrediente/listarIngredientes.jsp"><button>Ingredientes</button></a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link" href="<%=request.getContextPath() %>/tipoPizza/listarTipoPizzas.jsp">Tipos de Pizza</a>
+		<a class="nav-link" href="<%=request.getContextPath() %>/tipoPizza/listarTipoPizzas.jsp"><button>Tipos de Pizza</button></a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link" href="<%=request.getContextPath() %>/tamanho/listarTamanhos.jsp">Tamanhos</a>
+		<a class="nav-link" href="<%=request.getContextPath() %>/tamanho/listarTamanhos.jsp"><button>Tamanhos</button></a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link" href="<%=request.getContextPath() %>/saborPizza/listarSaboresPizza.jsp">Sabores de Pizza</a>
+		<a class="nav-link" href="<%=request.getContextPath() %>/saborPizza/listarSaboresPizza.jsp"><button>Sabores de Pizza</button></a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link" href="<%=request.getContextPath() %>/borda/listarBordas.jsp">Tipos de Borda</a>
+		<a class="nav-link" href="<%=request.getContextPath() %>/borda/listarBordas.jsp"><button>Tipos de Borda</button></a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link" href="<%=request.getContextPath() %>/funcionario/listarFuncionarios.jsp">Funcionários</a>
+		<a class="nav-link" href="<%=request.getContextPath() %>/funcionario/listarFuncionarios.jsp"><button>Funcionários</button></a>
 	</li>
 	
 
 
 
     <li class="nav-item">
-      <a class="nav-link" href="<%=request.getContextPath() %>/login/deslogar.jsp">Sair</a>
+      <a class="nav-link" href="<%=request.getContextPath() %>/login/deslogar.jsp"><button>Sair</button></a>
     </li>
 
 

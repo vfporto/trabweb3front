@@ -47,8 +47,15 @@ body{
 	background-size: cover;
 	
 }
+button{
+	background-color:transparent;
+	color:#fff;
+	text-align:center;
+	background-size:cover;
+	background-image:url("https://image.freepik.com/vetores-gratis/seamless-pattern-fast-food-pizza-black-background_24908-2190.jpg")
+}
 
-https://image.freepik.com/vetores-gratis/seamless-pattern-fast-food-pizza-black-background_24908-2190.jpg
+
 
 
 /*sidebar menu lateral*/
