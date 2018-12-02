@@ -18,7 +18,7 @@ import javax.servlet.http.Part;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class RESTConnectionV2 {
+public class RESTConnectionV3 {
 
 	public String getSendJson(String url, String verboHTTP,Map<?,?> queryParams, Object body) {
 		
@@ -31,7 +31,7 @@ public class RESTConnectionV2 {
 				if(!parteUrl.equals("")) {
 					fullUrl = fullUrl+"?"+parteUrl;
 				}
-			System.out.println("fullUrl: "+fullUrl);
+			System.out.println(fullUrl);
 			URL url_ = new URL(fullUrl);
 			con = (HttpURLConnection) url_.openConnection();
 
@@ -74,8 +74,10 @@ public class RESTConnectionV2 {
 					output.writeBytes("--*****--\r\n");
 				}else {
 					ObjectMapper mapper = new ObjectMapper();
-					String content = mapper.writeValueAsString(body);
-					System.out.println("Json gerado "+content);
+					String contentPraPrintar = mapper.writeValueAsString(body);
+					final byte[] data = mapper.writeValueAsBytes(body);
+					String content = new String(data, "ISO-8859-1");
+					System.out.println("Json gerado "+contentPraPrintar);	
 					output.writeBytes(content);	
 				}
 				output.flush();

@@ -1,6 +1,6 @@
 package model;
 
-public class TamanhoModel {
+public class TamanhoPizzaModel {
 	
 	private long id;
 	private String nome;

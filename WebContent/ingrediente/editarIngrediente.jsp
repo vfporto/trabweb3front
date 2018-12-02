@@ -27,7 +27,7 @@ IngredienteModel ingrediente = ctl.buscarIngredientePorId(Long.parseLong(id));
 			  <input type="hidden" name="acao" value="editar" >
 			  <input type="hidden" name="id" value="<%=ingrediente.getId()%>" >
 			  Ingrediente:<br>
-			  <input type="text" name="nome" class="form-control" value="<%= ingrediente.getNome() %>" alt="<%= ingrediente.getNome() %>" style="width: 70%;"><br>
+			  <input type="text" name="nome" class="form-control" value="<%= ingrediente.getNome() %>" alt="<%= ingrediente.getNome() %>" style="width: 70%;" autofocus><br>
 			  
 			  Quantidade Máxima : <br>
 			  <input type="text" name="qtMaxima" class="form-control-sm"  value="<%=ingrediente.getQtMaxima() %>"><br>

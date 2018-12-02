@@ -25,7 +25,7 @@ BordaModel borda = bordaCont.buscarBordaPorId(Long.parseLong(id));
 			  <input type="hidden" name="acao" value="editar" >
 			  <input type="hidden" name="id" value="<%= borda.getId() %>" >
 			  Tipo de Borda:<br>
-			  <input type="text" name="nome" class="form-control" value="<%= borda.getNome() %>" alt="<%= borda.getNome() %>" >
+			  <input type="text" name="nome" class="form-control" value="<%= borda.getNome() %>" alt="<%= borda.getNome() %>" autofocus>
 			  
 			  Valor Adicional:
 			  <input type="text" name="valorAdicional" class="form-control" value="<%= borda.getValorAdicional() %>" >
@@ -46,10 +46,29 @@ BordaModel borda = bordaCont.buscarBordaPorId(Long.parseLong(id));
 					//if(lista != null)
 					//	for(BordaModel borda : lista) {
 					%>
+					<input type="hidden" name="ingred" value="5;300">
 					<tr>
 						<td>
 							<% //out.print(borda.getNome()); %>
-							Mussarela
+							Tomate
+						</td>
+						<td>
+							<% //out.print(borda.getValorAdicional()); %>
+							200 gramas
+						</td>
+						<td class="mw-200"><a
+							href="<#=request.getContextPath()#>/editarBorda.jsp?id=<#=borda.getId() #>"
+							class="btn btn-primary">Editar</a> <a
+							href="<#=request.getContextPath()#>/crudBorda?id=<#=borda.getId() #>&acao=excluirBorda"
+							onclick="return confirmacaoDelecao()" class="btn btn-danger">Excluir</a>
+						</td>
+					</tr>
+					<!-- Linha 2... soh para testes -->
+					<input type="hidden" name="ingred" value="8;200">
+					<tr>
+						<td>
+							<% //out.print(borda.getNome()); %>
+							Tomate
 						</td>
 						<td>
 							<% //out.print(borda.getValorAdicional()); %>

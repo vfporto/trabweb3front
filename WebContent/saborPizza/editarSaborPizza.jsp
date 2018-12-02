@@ -22,7 +22,7 @@ SaborPizzaModel sabor = controller.buscarSaborPizzaPorId(Long.parseLong(id));
 	<div class="col-md-4"></div>
 	<div class="col-md-4">
 		<div class="login">
-			<h1>Editar Borda</h1>
+			<h1>EDITAR SABOR DE PIZZA</h1>
 			<p>Entre com os dados</p>
 						
 			<form method="POST" action="<%=request.getContextPath() %>/dispatcher">
@@ -41,7 +41,7 @@ SaborPizzaModel sabor = controller.buscarSaborPizzaPorId(Long.parseLong(id));
   			</select>
 			  
 			  Sabor da Pizza:<br>
-			  <input type="text" name="nome" class="form-control" value="<%= sabor.getNome() %>" alt="<%= sabor.getNome() %>" >
+			  <input type="text" name="nome" class="form-control" value="<%= sabor.getNome() %>" alt="<%= sabor.getNome() %>" autofocus >
 			  Descrição:<br>
 			  <input type="text" name="descricao" class="form-control" value="<%= sabor.getDescricao() %>" alt="<%= sabor.getDescricao() %>" >
 			  

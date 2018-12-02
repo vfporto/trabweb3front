@@ -12,9 +12,9 @@ import model.SaborPizzaIngredienteModel;
 import model.SaborPizzaModel;
 import model.TipoPizzaModel;
 import util.Configuracao;
-import wsclient.RESTConnectionV2;
+import wsclient.RESTConnectionV3;
 
-public class SaborPizzaController implements BaseController {
+public class SaborPizzaController implements ControllerBase {
 	
 	private String url = Configuracao.apiUrl + "/saborPizza";
 
@@ -23,21 +23,21 @@ public class SaborPizzaController implements BaseController {
 		Map<String,Object> queryParams = new HashMap<String,Object>();
 		queryParams.put("pagina", pagina);
 		queryParams.put("limitePorPagina", limitePorPagina);
-		RESTConnectionV2 rest = new RESTConnectionV2();
+		RESTConnectionV3 rest = new RESTConnectionV3();
 		return (List<SaborPizzaModel>) rest.getList(url, "GET", SaborPizzaModel.class, null, queryParams);
 	}
 
 	public void salvarSaborPizza(SaborPizzaModel saborPizza) {
 		this.url += "/salvar";
 		Map<String,Object> queryParams = new HashMap<String,Object>();
-		RESTConnectionV2 rest = new RESTConnectionV2();
+		RESTConnectionV3 rest = new RESTConnectionV3();
 		rest.getObject(url, "POST", null, saborPizza, queryParams);
 	}
 
 	public void alterarSaborPizza(SaborPizzaModel saborPizza) {
 		this.url += "/alterar";
 		Map<String,Object> queryParams = new HashMap<String,Object>();
-		RESTConnectionV2 rest = new RESTConnectionV2();
+		RESTConnectionV3 rest = new RESTConnectionV3();
 		rest.getObject(url, "PUT", null, saborPizza, queryParams);
 	}
 
@@ -45,7 +45,7 @@ public class SaborPizzaController implements BaseController {
 		this.url += "/buscar";
 		Map<String,Object> queryParams = new HashMap<String,Object>();
 		queryParams.put("id", id);
-		RESTConnectionV2 rest = new RESTConnectionV2();
+		RESTConnectionV3 rest = new RESTConnectionV3();
 		return (SaborPizzaModel) rest.getObject(url, "GET", SaborPizzaModel.class, null, queryParams);
 	}
 
@@ -53,7 +53,7 @@ public class SaborPizzaController implements BaseController {
 		this.url += "/deletar";
 		Map<String,Object> queryParams = new HashMap<String,Object>();
 		queryParams.put("id", id);
-		RESTConnectionV2 rest = new RESTConnectionV2();
+		RESTConnectionV3 rest = new RESTConnectionV3();
 		rest.getObject(url, "DELETE", null, null, queryParams);
 	}
 	

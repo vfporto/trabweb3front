@@ -19,7 +19,8 @@ FuncionarioModel funcionario = funcionarioCont.buscarFuncionarioPorId( Long.pars
 			<h2 class="efeito2">Editar Funcionários</h2>
 			<p>Entre com os seguintes dados</p>
 						
-			<form style="text-align: left; font-weight:700;" method="POST" enctype="multipart/form-data" action="<%=request.getContextPath() %>/crud">
+			<form style="text-align: left; font-weight:700;" method="POST" enctype="multipart/form-data" action="<%=request.getContextPath() %>/dispatcher">
+			  <input type="hidden" name="classe" value="Funcionario" >
 			  <input type="hidden" name="acao" value="editarFuncionario" >
 			  <input type="hidden" name="id" value="<%= funcionario.getId() %>" >
 			  <% if(funcionario.getFoto() != null){ %>
@@ -27,7 +28,7 @@ FuncionarioModel funcionario = funcionarioCont.buscarFuncionarioPorId( Long.pars
 			  	<img src="http://localhost:8080/TrabalhoWeb3Back/uploads/<%= funcionario.getFoto() %>" class="card-img-top">
 			  <% } %>
 			  Nome:<br>
-			  <input style="text-align:left;" type="text" name="nome" class="form-control" value="<%= funcionario.getNome() %>" alt="<%= funcionario.getNome() %>" ><br>
+			  <input style="text-align:left;" type="text" name="nome" class="form-control" value="<%= funcionario.getNome() %>" alt="<%= funcionario.getNome() %>" autofocus><br>
 			  
 			  CPF:<br>
 			  <input type="text" name="cpf" class="form-control-sm" value="<%= funcionario.getCpf() %>"><br>

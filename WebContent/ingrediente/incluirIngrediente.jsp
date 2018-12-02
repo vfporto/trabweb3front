@@ -14,7 +14,7 @@
 				<input type="hidden" name="acao" value="incluir" >
 			  
 			  Incluir o Ingrediente :<br>
-			  <input type="text" name="nome" class="form-control" ><br>
+			  <input type="text" name="nome" class="form-control" autofocus><br>
 			  
 			  Quantidade Máxima : <br>
 			  <input type="text" name="qtMaxima" class="form-control-sm" ><br>

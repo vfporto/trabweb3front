@@ -39,7 +39,7 @@
 		<div class="col-md-12">
 			<table class="table table-hover table-striped">
 				<thead>
-					<th>Borda</th>
+					<th>Tipo</th>
 					<th>Valor adicional</th>
 					<th class="mw-200">Ação</th>
 				</thead>
@@ -78,7 +78,7 @@
 			<button onclick="proximaPagina()" type="button"
 				<%if (lista == null)
 				         out.print("disabled");
-			          else if (lista.size() == 0)
+			          else if (lista.size() < limitePorPagina)
 				               out.print("disabled");%>
 				class="btn btn-secondary btn-sm">Próxima Página</button>
 

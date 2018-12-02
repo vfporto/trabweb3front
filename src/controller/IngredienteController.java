@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.IngredienteModel;
 import util.Configuracao;
-import wsclient.RESTConnectionV2;
+import wsclient.RESTConnectionV3;
 
-public class IngredienteController implements BaseController {
+public class IngredienteController implements ControllerBase {
 	
 	private String url = Configuracao.apiUrl + "/ingrediente";
 
@@ -20,21 +20,21 @@ public class IngredienteController implements BaseController {
 		Map<String,Object> queryParams = new HashMap<String,Object>();
 		queryParams.put("pagina", pagina);
 		queryParams.put("limitePorPagina", limitePorPagina);
-		RESTConnectionV2 rest = new RESTConnectionV2();
+		RESTConnectionV3 rest = new RESTConnectionV3();
 		return (List<IngredienteModel>) rest.getList(url, "GET", IngredienteModel.class, null, queryParams);
 	}
 
 	public void salvarIngrediente(IngredienteModel ingrediente) {
 		this.url += "/salvar";
 		Map<String,Object> queryParams = new HashMap<String,Object>();
-		RESTConnectionV2 rest = new RESTConnectionV2();
+		RESTConnectionV3 rest = new RESTConnectionV3();
 		rest.getObject(url, "POST", null, ingrediente, queryParams);
 	}
 
 	public void alterarIngrediente(IngredienteModel ingrediente) {
 		this.url += "/alterar";
 		Map<String,Object> queryParams = new HashMap<String,Object>();
-		RESTConnectionV2 rest = new RESTConnectionV2();
+		RESTConnectionV3 rest = new RESTConnectionV3();
 		rest.getObject(url, "PUT", null, ingrediente, queryParams);
 	}
 
@@ -42,7 +42,7 @@ public class IngredienteController implements BaseController {
 		this.url += "/buscar";
 		Map<String,Object> queryParams = new HashMap<String,Object>();
 		queryParams.put("id", id);
-		RESTConnectionV2 rest = new RESTConnectionV2();
+		RESTConnectionV3 rest = new RESTConnectionV3();
 		return (IngredienteModel) rest.getObject(url, "GET", IngredienteModel.class, null, queryParams);
 	}
 
@@ -50,7 +50,7 @@ public class IngredienteController implements BaseController {
 		this.url += "/deletar";
 		Map<String,Object> queryParams = new HashMap<String,Object>();
 		queryParams.put("id", id);
-		RESTConnectionV2 rest = new RESTConnectionV2();
+		RESTConnectionV3 rest = new RESTConnectionV3();
 		rest.getObject(url, "DELETE", null, null, queryParams);
 	}
 	

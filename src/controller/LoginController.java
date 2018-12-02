@@ -5,12 +5,12 @@ import java.util.Map;
 
 import model.FuncionarioModel;
 import util.Configuracao;
-import wsclient.RESTConnectionV2;
+import wsclient.RESTConnectionV3;
 
 public class LoginController {
 	
 	public FuncionarioModel validarLogin(String login, String senha) {
-		RESTConnectionV2 rest = new RESTConnectionV2();
+		RESTConnectionV3 rest = new RESTConnectionV3();
 		Map<String,Object> queryParams = new HashMap<String,Object>();
 		queryParams.put("login", login);
 		queryParams.put("senha", senha);

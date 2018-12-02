@@ -4,7 +4,7 @@
 
 <nav id="menu-principal" class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top navbar-expand-md">
   <!-- Brand -->
-  <a class="navbar-brand" href="<%=request.getContextPath() %>/index.jsp">Sitema</a>
+  <a class="navbar-brand" href="<%=request.getContextPath() %>/index.jsp">Home</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarCollapse" aria-controls="navbarCollapse"
 		aria-expanded="false" aria-label="Toggle navigation">

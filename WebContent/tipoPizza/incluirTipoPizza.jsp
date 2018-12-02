@@ -14,7 +14,7 @@
 			<input type="hidden" name="classe" value="TipoPizza" >
 			  <input type="hidden" name="acao" value="incluir">
 			  Tipo: <br>
-			  <input type="text" name="nome" class="form-control"><br>
+			  <input type="text" name="nome" class="form-control" autofocus><br>
 			  
 			  Valor Adicional R$:
 			  <center><input type="text" name="valorAdicional" class="form-control" style="width: 250px;"><center><br>

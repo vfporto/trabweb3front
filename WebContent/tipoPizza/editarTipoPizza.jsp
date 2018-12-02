@@ -27,7 +27,7 @@ TipoPizzaModel tipo = ctl.buscarTipoPizzaPorId(Long.parseLong(id));
 			  <input type="hidden" name="acao" value="editar" >
 			  <input type="hidden" name="id" value="<%= tipo.getId() %>" >
 			  Tipo de Pizza:<br>
-			  <input type="text" name="nome" class="form-control" value="<%= tipo.getNome() %>" alt="<%= tipo.getNome() %>" >
+			  <input type="text" name="nome" class="form-control" value="<%= tipo.getNome() %>" alt="<%= tipo.getNome() %>" autofocus >
 			  
 			  Valor Adicional:
 			  <input type="text" name="valorAdicional" class="form-control" value="<%= tipo.getValorAdicional() %>" >

@@ -12,7 +12,7 @@
 				
 				<div class="form-group">
 					<input type="text" class="form-control-sm" id="login" required
-						name="login" placeholder="Login">
+						name="login" placeholder="Login" autofocus>
 				</div>
 
 				<div class="form-group">

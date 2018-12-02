@@ -29,7 +29,7 @@
   			</select>
 			  
 			  Sabor da Pizza: <br>
-			  <input type="text" name="nome" class="form-control" ><br>
+			  <input type="text" name="nome" class="form-control" autofocus ><br>
 			  Descrição: <br>
 			  <input type="text" name="descricao" class="form-control" ><br>
 			  
