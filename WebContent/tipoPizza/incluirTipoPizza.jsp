@@ -13,11 +13,11 @@
 			<form method="POST" action="<%=request.getContextPath() %>/dispatcher">
 			<input type="hidden" name="classe" value="TipoPizza" >
 			  <input type="hidden" name="acao" value="incluir">
-			  Tipo: <br>
-			  <input type="text" name="nome" class="form-control" autofocus><br>
+			  Tipo de Pizza: <br>
+			  <input type="text" name="nome" class="form-control" autofocus="autofocus"><br>
 			  
 			  Valor Adicional R$:
-			  <center><input type="text" name="valorAdicional" class="form-control" style="width: 250px;"><center><br>
+			  <center><input type="number" name="valorAdicional" class="form-control"  value="0" style="width: 200px;"><center><br>
 			  
  				<input type="button" onclick="history.back()" class="btn btn-primary" value="Cancelar">
 				<input type="submit" class="btn btn-primary" value="Salvar">

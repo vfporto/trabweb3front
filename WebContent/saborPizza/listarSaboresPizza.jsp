@@ -29,14 +29,14 @@
 <div class="container">
 	<div class="row">
 
-		<div class="col-md-6">
-			<h1>Sabores de Pizza</h1>
+		<div class="col-md-10">
+			<h1 class="efeito2">Sabores de Pizza</h1>
 		</div>
-		<div class="col-md-6 text-right">
+		<div class="col-md-10 text-right">
 			<a href="<%=request.getContextPath()%>/saborPizza/incluirSaborPizza.jsp"
 				class="btn btn-success">Incluir</a>
 		</div>
-		<div class="col-md-12">
+		<div class="col-md-10">
 			<table class="table table-hover table-striped">
 				<thead>
 					<th>Tipo Pizza</th>
@@ -61,7 +61,7 @@
 						</td>
 						<td class="mw-200"><a
 							href="<%=request.getContextPath()%>/saborPizza/editarSaborPizza.jsp?id=<%=sabor.getId() %>"
-							class="btn btn-outline-warning btn-sm">Editar</a> <a
+							class="btn btn-outline-primary btn-sm">Editar</a> <a
 							href="<%=request.getContextPath()%>/dispatcher?classe=SaborPizza&id=<%=sabor.getId() %>&acao=excluir"
 							onclick="return confirmacaoDelecao()" class="btn btn-outline-danger btn-sm ">Excluir</a>
 						</td>
@@ -82,7 +82,7 @@
 			<button onclick="proximaPagina()" type="button"
 				<%if (lista == null)
 				         out.print("disabled");
-			          else if (lista.size() < limitePorPagina)
+			          else if (lista.size() == 0)
 				               out.print("disabled");%>
 				class="btn btn-secondary btn-sm">Próxima Página</button>
 

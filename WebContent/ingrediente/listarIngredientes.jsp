@@ -24,14 +24,14 @@
 <div class="container">
 	<div class="row">
 
-		<div class="col-md-10">
+			<div class="col-md-10">
 			<h2 class="efeito2">Ingredientes</h2>
 		</div>
 		<div class="col-md-10 text-right">
 			<a href="<%=request.getContextPath()%>/ingrediente/incluirIngrediente.jsp"
 				class="btn btn-success">Incluir</a>
 		</div>
-		<div class="col-md-12">
+		<div class="col-md-10">
 			<table class="table table-hover table-striped">
 				<thead>
 					<th>Ingrediente</th>
@@ -61,11 +61,13 @@
 						<td>
 							<% out.print(ingrediente.getUnidadeMedida()); %>
 						</td>
-						<td class="mw-200">
-							<a href="<%=request.getContextPath()%>/ingrediente/editarIngrediente.jsp?id=<%=ingrediente.getId() %>" class="btn btn-outline-warning">Editar</a> 
+							<div class="col-md-10 text-right">
+						<td class="mw-200" >
+							<a href="<%=request.getContextPath()%>/ingrediente/editarIngrediente.jsp?id=<%=ingrediente.getId() %>" id="btn-editar" class="btn btn-outline-primary btn-sm">Editar</a> 
 							<a href="<%=request.getContextPath()%>/dispatcher?classe=Ingrediente&id=<%=ingrediente.getId() %>&acao=excluir"
-							onclick="return confirmacaoDelecao()" class="btn btn-outline-danger btn-sm">Excluir</a>
+							onclick="return confirmacaoDelecao()" id="btn-excluir" class="btn btn-outline-danger btn-sm">Excluir</a>
 						</td>
+							<div class="col-md-10 text-right">
 					</tr>
 					<% } %>
 				</tbody>
@@ -83,7 +85,7 @@
 			<button onclick="proximaPagina()" type="button"
 				<%if (lista == null)
 				         out.print("disabled");
-			          else if (lista.size() < limitePorPagina)
+			          else if (lista.size() == 0)
 				               out.print("disabled");%>
 				class="btn btn-secondary btn-sm">Próxima Página</button>
 

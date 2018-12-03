@@ -14,19 +14,19 @@
 				<input type="hidden" name="acao" value="incluir" >
 			  
 			  Incluir o Ingrediente :<br>
-			  <input type="text" name="nome" class="form-control" autofocus><br>
+			  <input type="text" name="nome" class="form-control" autofocus ><br>
 			  
 			  Quantidade Máxima : <br>
-			  <input type="text" name="qtMaxima" class="form-control-sm" ><br>
+			  <input type="number" name="qtMaxima" class="form-control-sm" value="0" ><br>
 			  
 			  Quantidade Mínima : <br>
-			  <input type="text" name="qtMinima" class="form-control-sm" ><br>
+			  <input type="number" name="qtMinima" class="form-control-sm" value="0" ><br>
 			  
 			  Quantidade Estoque: <br>
-			  <input type="text" name="qtEstoque" class="form-control-sm" ><br>
+			  <input type="number" name="qtEstoque" class="form-control-sm" value="0"><br>
 			 
 			  Unidade Medida : <br>
-			  <input type="text" name="unidadeMedida" class="form-control-sm" ><br>
+			  <input type="number" name="unidadeMedida" class="form-control-sm" value="0" ><br>
 			  
 			  
 			  <br>

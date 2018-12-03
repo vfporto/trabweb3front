@@ -1,11 +1,15 @@
-<%@page import="model.TamanhoPizzaModel"%>
-<%@page import="controller.TamanhoPizzaController"%>
+<%@page import="controller.TipoPizzaController"%>
+<%@page import="model.TipoPizzaModel"%>
+<%@page import="model.BordaModel"%>
+<%@page import="controller.BordaController"%>
 <%@ include file="/estrutura/header.jsp"%>
 <%@ include file="/estrutura/menu.jsp"%>
 
 <%@ include file="/login/controleAcesso.jsp"%>
 
+<%@ page import="controller.FuncionarioController"%>
 <%@ page import="java.util.List"%>
+<%@ page import="model.FuncionarioModel"%>
 
 <%
 	int limitePorPagina = 3;
@@ -17,8 +21,8 @@
 %>
 
 <%
-	TamanhoPizzaController controller = new TamanhoPizzaController();
-	List<TamanhoPizzaModel> lista = controller.listar(paginaAtual, limitePorPagina);
+	TipoPizzaController app = new TipoPizzaController();
+	List<TipoPizzaModel> lista = app.listar(paginaAtual, limitePorPagina);
 	
 %>
 
@@ -26,8 +30,7 @@
 	<div class="row">
 
 		<div class="col-md-10">
-			<h2 class="efeito2">Tamanhos de Pizza</h2>
-			 
+			<h3>Tamanhos de Pizza (NÃO FUNCIONA AINDA! TÁ FALTANDO LÓGICA NO BACKEND E O NO FRONT END...)</h3>
 		</div>
 		<div class="col-md-10 text-right">
 			<a href="<%=request.getContextPath()%>/tamanho/incluirTamanho.jsp"
@@ -37,33 +40,29 @@
 			<table class="table table-hover table-striped">
 				<thead>
 					<th>Tamanho</th>
-					<th>Máx. Sabores</th>
-					<th>Preço (R$)</th>
+					<th>Descricao</th>
+					<th>Preço</th>
+					<th>Num. Máx. Sabores</th>
 					<th>Fator Mult.</th>
+					
 					<th class="mw-200">Ação</th>
 				</thead>
 				<tbody>
 					<%
 					if(lista != null)
-						for(TamanhoPizzaModel tamanho : lista) {
+						for(TipoPizzaModel tipo : lista) {
 					%>
 					<tr>
-						<td title="<%=tamanho.getDescricao()%>">
-							<%=tamanho.getNome() %>
+						<td>
+							<% out.print(tipo.getNome()); %>
 						</td>
 						<td>
-							<%=tamanho.getNumMaximoSabores()%>
-						</td>
-						<td>
-							<%=tamanho.getPreco()%>
-						</td>
-						<td>
-							<%=tamanho.getFatorMultiplicacao()%>
+							<% out.print(tipo.getValorAdicional()); %>
 						</td>
 						<td class="mw-200"><a
-							href="<%=request.getContextPath()%>/tamanho/editarTamanho.jsp?id=<%=tamanho.getId() %>"
-							class="btn btn-outline-warning btn-sm">Editar</a> <a
-							href="<%=request.getContextPath()%>/dispatcher?classe=TamanhoPizza&id=<%=tamanho.getId() %>&acao=excluir"
+							href="<%=request.getContextPath()%>/tipoPizza/editarTipoPizza.jsp?id=<%=tipo.getId() %>"
+							class="btn btn-outline-primary btn-sm">Editar</a> <a
+							href="<%=request.getContextPath()%>/dispatcher?classe=TipoPizza&id=<%=tipo.getId() %>&acao=excluir"
 							onclick="return confirmacaoDelecao()" class="btn btn-outline-danger btn-sm">Excluir</a>
 						</td>
 					</tr>
@@ -74,7 +73,7 @@
 		</div>
 
 
-		<div class="col-md-12 text-center">
+		<div class="col-md-10 text-center">
 
 			<button onclick="paginaAnterior()" type="button"
 				<%if (paginaAtual == 1)
@@ -83,7 +82,7 @@
 			<button onclick="proximaPagina()" type="button"
 				<%if (lista == null)
 				         out.print("disabled");
-				else if (lista.size() < limitePorPagina)
+			          else if (lista.size() == 0)
 				               out.print("disabled");%>
 				class="btn btn-secondary btn-sm">Próxima Página</button>
 

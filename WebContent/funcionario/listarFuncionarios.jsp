@@ -24,14 +24,14 @@
 <div class="container">
 	<div class="row">
 
-		<div class="col-md-6">
+		<div class="col-md-10">
 			<h2 class="efeito2">Funcionários</h2>
 		</div>
-		<div class="col-md-6 text-right">
+		<div class="col-md-10 text-right">
 			<a href="<%=request.getContextPath()%>/funcionario/incluirFuncionario.jsp"
 				class="btn btn-success">Incluir</a>
 		</div>
-		<div class="col-md-12">
+		<div class="col-md-10">
 			<table class="table table-hover table-striped">
 				<thead>
 					<th>Nome</th>
@@ -56,8 +56,8 @@
 						</td>
 						<td class="mw-200"><a
 							href="<%=request.getContextPath()%>/funcionario/editarFuncionario.jsp?id=<%=funcionario.getId() %>"
-							class="btn btn-outline-warning btn-sm">Editar</a> <a
-							href="<%=request.getContextPath()%>/dispatcher?classe=Funcionario&id=<%=funcionario.getId() %>&acao=excluirFuncionario"
+							class="btn btn-outline-primary btn-sm">Editar</a> <a
+							href="<%=request.getContextPath()%>/crud?id=<%=funcionario.getId() %>&acao=excluirFuncionario"
 							onclick="return confirmacaoDelecao()" class="btn btn-outline-danger btn-sm">Excluir</a>
 						</td>
 					</tr>
@@ -77,8 +77,8 @@
 			<button onclick="proximaPagina()" type="button"
 				<%if (lista == null)
 				         out.print("disabled");
-					else if (lista.size() < limitePorPagina)
-				         out.print("disabled");%>
+			          else if (lista.size() == 0)
+				               out.print("disabled");%>
 				class="btn btn-secondary btn-sm">Próxima Página</button>
 
 		</div>

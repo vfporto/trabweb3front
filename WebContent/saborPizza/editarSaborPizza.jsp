@@ -20,10 +20,9 @@ SaborPizzaModel sabor = controller.buscarSaborPizzaPorId(Long.parseLong(id));
 
 <div class="row">
 	<div class="col-md-4"></div>
-	<div class="col-md-4">
+	<div class="col-md-10">
 		<div class="login">
-			<h1>EDITAR SABOR DE PIZZA</h1>
-			<p>Entre com os dados</p>
+			<h1 class="efeito2">Editar Borda</h1>
 						
 			<form method="POST" action="<%=request.getContextPath() %>/dispatcher">
 			  <input type="hidden" name="classe" value="SaborPizza" >
@@ -41,14 +40,14 @@ SaborPizzaModel sabor = controller.buscarSaborPizzaPorId(Long.parseLong(id));
   			</select>
 			  
 			  Sabor da Pizza:<br>
-			  <input type="text" name="nome" class="form-control" value="<%= sabor.getNome() %>" alt="<%= sabor.getNome() %>" autofocus >
+			  <input type="text" autofocus="autofocus" name="nome" class="form-control" value="<%= sabor.getNome() %>" alt="<%= sabor.getNome() %>" >
 			  Descrição:<br>
 			  <input type="text" name="descricao" class="form-control" value="<%= sabor.getDescricao() %>" alt="<%= sabor.getDescricao() %>" >
 			  
 			  
 			  
 			  Valor Adicional:
-			  <input type="text" name="valorAdicional" class="form-control" value="<%= sabor.getValorAdicional() %>" >
+			  <input type="number" name="valorAdicional" class="form-control" value="<%= sabor.getValorAdicional() %>" >
 			 
  
 			<div class="col-md-12">
@@ -77,9 +76,9 @@ SaborPizzaModel sabor = controller.buscarSaborPizzaPorId(Long.parseLong(id));
 						</td>
 						<td class="mw-200"><a
 							href="<#=request.getContextPath()#>/editarBorda.jsp?id=<#=borda.getId() #>"
-							class="btn btn-primary">Editar</a> <a
+							class="btn btn-outline-primary btn-sm">Editar</a> <a
 							href="<#=request.getContextPath()#>/crudBorda?id=<#=borda.getId() #>&acao=excluirBorda"
-							onclick="return confirmacaoDelecao()" class="btn btn-danger">Excluir</a>
+							onclick="return confirmacaoDelecao()" class="btn btn-outline-danger btn-sm">Excluir</a>
 						</td>
 					</tr>
 					<% //} %>
@@ -94,7 +93,7 @@ SaborPizzaModel sabor = controller.buscarSaborPizzaPorId(Long.parseLong(id));
 			 <option>Ingred 2</option>
 			 </select>
 			 <a href="<#=request.getContextPath()#>/incluirIngredienteNaBorda.jsp"
-				class="btn btn-success">Incluir</a>
+				class="btn btn-success">Incluir</a><br><br>
 			 
 			 <div>
 				<input type="button" onclick="history.back()" class="btn btn-default" value="Cancelar">	

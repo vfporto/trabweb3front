@@ -9,11 +9,10 @@
 		<div class="login">
 			<h2 class="efeito2">Novo Funcionario</h2>
 			<p>Entre com os seguintes dados:</p>
-			<form method="POST" enctype="multipart/form-data" action="<%=request.getContextPath()%>/dispatcher">
-			  <input type="hidden" name="classe" value="Funcionario">
+			<form method="POST" enctype="multipart/form-data" action="<%=request.getContextPath() %>/crud" >
 			  <input type="hidden" name="acao" value="incluirFuncionario" >
 			  Nome:<br>
-			  <input type="text" name="nome" class="form-control" autofocus>
+			  <input type="text" name="nome" class="form-control" >
 			  
 			  CPF:<br>
 			  <input type="text" name="cpf" class="form-control-sm">
