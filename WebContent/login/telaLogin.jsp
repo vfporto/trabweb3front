@@ -2,10 +2,12 @@
 
  	<!-- BEGIN # BOOTSNIP INFO -->
 <div class="container">
+<div>	<h1 class="text-center efeito2">S.G.P</h1>
+		<center><p>Sistema de Gerenciamento para Pizzarias</p></div></center>
+		<br>
 	<div class="row">
-		<h2 class="text-center efeito2">SISTEMA DE GERENCIAMENTO PARA PIZZARIAS</h2>
-        <p class="text-center"><a href="#" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#login-modal">CLIQUE AQUI!</a></p>
-	</div>
+       <center> <p class="text-center"><a href="#" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#login-modal">CLIQUE AQUI!</a></p>
+	</div><center>
 </div>
 <!-- END # BOOTSNIP INFO -->
 
