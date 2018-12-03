@@ -9,6 +9,15 @@ public class BordaModel {
 	private double valorAdicional;
 	private List<BordaIngredienteModel> listaIngredientes;
 
+	public BordaModel() {
+		super();
+	}
+
+	public BordaModel(long id) {
+		super();
+		this.id = id;
+	}
+
 	public long getId() {
 		return id;
 	}

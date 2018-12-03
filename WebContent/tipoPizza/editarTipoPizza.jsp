@@ -4,8 +4,6 @@
 <%@ include file="/estrutura/menu.jsp" %>
 <%@ include file="/login/controleAcesso.jsp" %>
 
-<%@ page import="controller.BordaController" %>
-<%@ page import="model.BordaModel" %>
 
 <%
 String id = request.getParameter("id");

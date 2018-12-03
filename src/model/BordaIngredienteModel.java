@@ -5,6 +5,8 @@ public class BordaIngredienteModel {
 	private long id;
 	private BordaModel borda;
 	private IngredienteModel ingrediente;
+	private double quantidade;
+	
 
 	public long getId() {
 		return id;
@@ -30,7 +32,14 @@ public class BordaIngredienteModel {
 		this.ingrediente = ingrediente;
 	}
 	
-	
+	public double getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(double quantidade) {
+		this.quantidade = quantidade;
+	}
+		
 	
 
 }

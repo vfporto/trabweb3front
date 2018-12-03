@@ -55,9 +55,6 @@
 							<%=tamanho.getNumMaximoSabores()%>
 						</td>
 						<td>
-							<%=tamanho.getNumMaximoSabores()%>
-						</td>
-						<td>
 							<%=tamanho.getPreco()%>
 						</td>
 						<td>

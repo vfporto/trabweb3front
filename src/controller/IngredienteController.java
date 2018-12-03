@@ -23,6 +23,12 @@ public class IngredienteController implements ControllerBase {
 		RESTConnectionV3 rest = new RESTConnectionV3();
 		return (List<IngredienteModel>) rest.getList(url, "GET", IngredienteModel.class, null, queryParams);
 	}
+	
+	public List<IngredienteModel> listarTudo() {
+		this.url += "/listarTudo";
+		RESTConnectionV3 rest = new RESTConnectionV3();
+		return (List<IngredienteModel>) rest.getList(url, "GET", IngredienteModel.class, null, null);
+	}
 
 	public void salvarIngrediente(IngredienteModel ingrediente) {
 		this.url += "/salvar";

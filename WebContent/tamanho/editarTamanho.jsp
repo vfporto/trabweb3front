@@ -39,12 +39,12 @@ TamanhoPizzaModel tamanho = ctl.buscarTamanhoPizzaPorId(Long.parseLong(id));
 				Fator de Múltiplicação: (Ajuda?)<br>
 				<!-- Colocar um tipo de glyph-icon com interrogação... Vou colocar um modal explicando o que é isso  -->
 				 
-				<input type="text" name="fatorMultiplicacao" class="form-control" value="<%=tamanho.getFatorMultiplicacao()%>" ><br> 
+				<input type="number" step=".01" name="fatorMultiplicacao" class="form-control" value="<%=tamanho.getFatorMultiplicacao()%>" ><br> 
 				
 
 				Preço R$:
 				<center>
-					<input type="text" name="preco" class="form-control" style="width: 250px;">
+					<input type="number" step=".01" name="preco" value="<%=tamanho.getPreco()%>" class="form-control" style="width: 250px;">
 <!-- ************************************************************************** --> 
 			 <div>
 			 <br>

@@ -8,6 +8,19 @@ public class IngredienteModel {
 	private double qtMinima;
 	private double qtMaxima;
 	private String unidadeMedida;
+	
+	public IngredienteModel() {
+		super();
+	}
+
+
+	public IngredienteModel(long id) {
+		super();
+		this.id = id;
+	}
+
+
+
 
 	public long getId() {
 		return id;

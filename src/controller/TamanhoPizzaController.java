@@ -1,7 +1,9 @@
 package controller;
 
+import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -65,14 +67,17 @@ public class TamanhoPizzaController implements ControllerBase {
 		String acao = request.getParameter("acao");
 		String paginaRedirecao = "/tamanho/listarTamanhos.jsp";
 		TamanhoPizzaModel tamanho;
+		NumberFormat nf = NumberFormat.getInstance(Locale.FRANCE);
 
 		switch (acao) {
 		case "incluir":
 			String nome = request.getParameter("nome");
 			String descricao = request.getParameter("descricao");
 			int numMaximoSabores = Integer.parseInt(request.getParameter("numMaximoSabores"));
-			double preco = Double.parseDouble(request.getParameter("preco"));
-			double fatorMultiplicacao = Double.parseDouble(request.getParameter("fatorMultiplicacao"));
+			double preco = nf.parse(request.getParameter("preco")).doubleValue();
+			double fatorMultiplicacao = nf.parse(request.getParameter("fatorMultiplicacao")).doubleValue();		
+			//double preco = Double.parseDouble(request.getParameter("preco"));
+			//double fatorMultiplicacao = Double.parseDouble(request.getParameter("fatorMultiplicacao"));
 			
 			tamanho = new TamanhoPizzaModel();
 			tamanho.setNome(nome);

@@ -18,42 +18,45 @@ public class BordaController implements ControllerBase {
 	private String url = Configuracao.apiUrl + "/borda";
 
 	public List<BordaModel> listar(int pagina, int limitePorPagina) {
-		this.url += "/listar";
 		Map<String, Object> queryParams = new HashMap<String, Object>();
 		queryParams.put("pagina", pagina);
 		queryParams.put("limitePorPagina", limitePorPagina);
 		RESTConnectionV3 rest = new RESTConnectionV3();
-		return (List<BordaModel>) rest.getList(url, "GET", BordaModel.class, null, queryParams);
+		return (List<BordaModel>) rest.getList(url+"/listar", "GET", BordaModel.class, null, queryParams);
 	}
 
 	public void salvarBorda(BordaModel borda) {
-		this.url += "/salvar";
 		Map<String, Object> queryParams = new HashMap<String, Object>();
 		RESTConnectionV3 rest = new RESTConnectionV3();
-		rest.getObject(url, "POST", null, borda, queryParams);
+		rest.getObject(url+"/bordaIngrediente/salvar", "POST", null, borda, queryParams);
 	}
+	
+	public void incluirIngrediente(BordaIngredienteModel ingrediente) {
+		String url = Configuracao.apiUrl + "/bordaIngrediente/salvar";
+		Map<String, Object> queryParams = new HashMap<String, Object>();
+		RESTConnectionV3 rest = new RESTConnectionV3();
+		rest.getObject(url, "POST", null, ingrediente, queryParams);
+	}
+	
 
 	public void alterarBorda(BordaModel borda) {
-		this.url += "/alterar";
 		Map<String, Object> queryParams = new HashMap<String, Object>();
 		RESTConnectionV3 rest = new RESTConnectionV3();
-		rest.getObject(url, "PUT", null, borda, queryParams);
+		rest.getObject(url+"/alterar", "PUT", null, borda, queryParams);
 	}
 
 	public BordaModel buscarBordaPorId(long id) {
-		this.url += "/buscar";
 		Map<String, Object> queryParams = new HashMap<String, Object>();
 		queryParams.put("id", id);
 		RESTConnectionV3 rest = new RESTConnectionV3();
-		return (BordaModel) rest.getObject(url, "GET", BordaModel.class, null, queryParams);
+		return (BordaModel) rest.getObject(url+"/buscar", "GET", BordaModel.class, null, queryParams);
 	}
 
 	public void deletarPorId(long id) {
-		this.url += "/deletar";
 		Map<String, Object> queryParams = new HashMap<String, Object>();
 		queryParams.put("id", id);
 		RESTConnectionV3 rest = new RESTConnectionV3();
-		rest.getObject(url, "DELETE", null, null, queryParams);
+		rest.getObject(url+"/deletar", "DELETE", null, null, queryParams);
 	}
 
 	@Override
@@ -90,27 +93,33 @@ public class BordaController implements ControllerBase {
 			borda.setId(Long.parseLong(id));
 			borda.setNome(nome);
 			borda.setValorAdicional(Float.parseFloat(valorAdicional));
+			borda.setListaIngredientes(new ArrayList<>());
+			borda.getListaIngredientes().clear();
+			alterarBorda(borda);
 			
 			
-			/*
 			System.out.println("---------------------");
 			String[] listaIngred = request.getParameterValues("ingred");
-			borda.setListaIngredientes(new ArrayList<>());
-			for (String ingred : listaIngred) {
-				String[] item = ingred.split(";");
-				Long idIng = Long.parseLong(item[0]);
-				IngredienteModel ing = new IngredienteModel();
-				ing.setId(idIng);
-				//IngredienteModel aux = new IngredienteController().buscarIngredientePorId(idIng);
-				//System.out.println("Item "+aux.getNome()+" : "+item[1]+" gramas");
-				BordaIngredienteModel aux = new BordaIngredienteModel();
-				aux.setBorda(borda);
-				aux.setIngrediente(ing);
-				borda.getListaIngredientes().add(aux);
+			if(listaIngred != null) {
+				for (String ingred : listaIngred) {
+					String[] item = ingred.split(";");
+					long idIng = Long.parseLong(item[0]);
+					double qtd = Double.parseDouble(item[1]);
+					
+					IngredienteModel ing = new IngredienteModel(idIng);
+					BordaModel bd = new BordaModel(Long.parseLong(id));
+					
+					BordaIngredienteModel aux = new BordaIngredienteModel();
+					aux.setBorda(bd);
+					aux.setIngrediente(ing);
+					aux.setQuantidade(qtd);
+					
+					this.incluirIngrediente(aux);
+					
+				}
 			}
 			System.out.println("---------------------");
-			*/
-			alterarBorda(borda);
+			
 
 		}
 
