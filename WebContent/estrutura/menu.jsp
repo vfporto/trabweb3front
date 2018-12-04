@@ -15,7 +15,7 @@
 <ul class="nav justify-content-center">
 
 	<li class="nav-item">
-		<a class="nav-link active" href="<%=request.getContextPath() %>/ingrediente/listarIngredientes.jsp">INGREDIENTES</a>
+		<a class="nav-link" href="<%=request.getContextPath() %>/ingrediente/listarIngredientes.jsp">INGREDIENTES</a>
 	</li>
 	<li class="nav-item">
 		<a class="nav-link" href="<%=request.getContextPath() %>/tipoPizza/listarTipoPizzas.jsp">TIPOS DE PIZZA</a>
