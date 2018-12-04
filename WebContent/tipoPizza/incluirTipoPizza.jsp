@@ -14,10 +14,10 @@
 			<input type="hidden" name="classe" value="TipoPizza" >
 			  <input type="hidden" name="acao" value="incluir">
 			  Tipo de Pizza: <br>
-			  <input type="text" name="nome" class="form-control" autofocus="autofocus"><br>
+			  <input type="text" name="nome" class="form-control" autofocus><br>
 			  
 			  Valor Adicional R$:
-			  <center><input type="number" name="valorAdicional" class="form-control"  value="0" style="width: 200px;"><center><br>
+			  <center><input type="number" step=".01" name="valorAdicional" class="form-control"  value="0" style="width: 200px;"><center><br>
 			  
  				<input type="button" onclick="history.back()" class="btn btn-primary" value="Cancelar">
 				<input type="submit" class="btn btn-primary" value="Salvar">

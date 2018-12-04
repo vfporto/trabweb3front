@@ -30,7 +30,7 @@
 	<div class="row">
 
 		<div class="col-md-10">
-			<h1 class="efeito2">Sabores de Pizza</h1>
+			<h1 class="efeito2">SABORES DE PIZZA</h1>
 		</div>
 		<div class="col-md-10 text-right">
 			<a href="<%=request.getContextPath()%>/saborPizza/incluirSaborPizza.jsp"
@@ -82,7 +82,7 @@
 			<button onclick="proximaPagina()" type="button"
 				<%if (lista == null)
 				         out.print("disabled");
-			          else if (lista.size() == 0)
+			          else if (lista.size() < limitePorPagina)
 				               out.print("disabled");%>
 				class="btn btn-secondary btn-sm">Próxima Página</button>
 

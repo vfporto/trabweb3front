@@ -22,7 +22,7 @@ SaborPizzaModel sabor = controller.buscarSaborPizzaPorId(Long.parseLong(id));
 	<div class="col-md-4"></div>
 	<div class="col-md-10">
 		<div class="login">
-			<h1 class="efeito2">Editar Borda</h1>
+			<h1 class="efeito2">EDITAR SABOR DE PIZZA</h1>
 						
 			<form method="POST" action="<%=request.getContextPath() %>/dispatcher">
 			  <input type="hidden" name="classe" value="SaborPizza" >
@@ -40,14 +40,14 @@ SaborPizzaModel sabor = controller.buscarSaborPizzaPorId(Long.parseLong(id));
   			</select>
 			  
 			  Sabor da Pizza:<br>
-			  <input type="text" autofocus="autofocus" name="nome" class="form-control" value="<%= sabor.getNome() %>" alt="<%= sabor.getNome() %>" >
+			  <input type="text" name="nome" class="form-control" value="<%= sabor.getNome() %>" alt="<%= sabor.getNome() %>" autofocus >
 			  Descrição:<br>
 			  <input type="text" name="descricao" class="form-control" value="<%= sabor.getDescricao() %>" alt="<%= sabor.getDescricao() %>" >
 			  
 			  
 			  
 			  Valor Adicional:
-			  <input type="number" name="valorAdicional" class="form-control" value="<%= sabor.getValorAdicional() %>" >
+			  <input type="number" step="0.1" name="valorAdicional" class="form-control" value="<%= sabor.getValorAdicional() %>" >
 			 
  
 			<div class="col-md-12">
@@ -93,7 +93,7 @@ SaborPizzaModel sabor = controller.buscarSaborPizzaPorId(Long.parseLong(id));
 			 <option>Ingred 2</option>
 			 </select>
 			 <a href="<#=request.getContextPath()#>/incluirIngredienteNaBorda.jsp"
-				class="btn btn-success">Incluir</a><br><br>
+				class="btn btn-success">Incluir</a>
 			 
 			 <div>
 				<input type="button" onclick="history.back()" class="btn btn-default" value="Cancelar">	

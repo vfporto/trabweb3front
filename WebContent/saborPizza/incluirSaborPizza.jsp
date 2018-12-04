@@ -28,12 +28,12 @@
   			</select>
 			  
 			  Sabor da Pizza: <br>
-			  <input type="text" name="nome" class="form-control" autofocus="autofocus"><br>
+			  <input type="text" name="nome" class="form-control" autofocus ><br>
 			  Descrição: <br>
 			  <input type="text" name="descricao" class="form-control" ><br>
 			  
 			  Valor Adicional R$:
-			  <center><input type="number" name="valorAdicional" class="form-control" style="width: 150px;"><center><br>
+			  <center><input type="number" step=".01" value="0" name="valorAdicional" class="form-control" style="width: 150px;"><center><br>
 			  
  				<input type="button" onclick="history.back()" class="btn btn-primary" value="Cancelar">
 				<input type="submit" class="btn btn-primary" value="Salvar">
