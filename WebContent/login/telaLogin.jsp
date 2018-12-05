@@ -7,7 +7,7 @@
 		<br>
 	<div class="row">
        <center> <p class="text-center"><a href="#" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#login-modal">CLIQUE AQUI!</a></p>
-	</div><center>
+	</div></center>
 </div>
 <!-- END # BOOTSNIP INFO -->
 
@@ -35,20 +35,13 @@
                             </div>
 				    		<input id="login_username" class="form-control" type="text" placeholder="Usuário" required name="login">
 				    		<input id="login_password" class="form-control" type="password" placeholder="Senha" required name="senha">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox"> Lembrar-me.
-                                </label>
-                            </div>
+                         
         		    	</div>
 				        <div class="modal-footer">
                             <div>
                                 <button type="submit" class="btn btn-primary btn-lg btn-block">ENTRAR</button>
                             </div>
-				    	    <div>
-                                <button id="login_lost_btn" type="button" class="btn btn-link"> <a href="http://localhost:8080/TrabalhoWeb3Front/login/esqueceuSenha.jsp"> Esqueceu a Senha?</a></button>
-                                <button id="login_register_btn" type="button" class="btn btn-link">Registre-se</button>
-                            </div>
+				    	   
 				        </div>
                     </form>
                     <!-- End # Login Form -->
