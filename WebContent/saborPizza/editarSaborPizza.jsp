@@ -1,3 +1,6 @@
+<%@page import="model.SaborPizzaIngredienteModel"%>
+<%@page import="model.IngredienteModel"%>
+<%@page import="controller.IngredienteController"%>
 <%@page import="model.TipoPizzaModel"%>
 <%@page import="java.util.List"%>
 <%@page import="controller.TipoPizzaController"%>
@@ -29,11 +32,11 @@ SaborPizzaModel sabor = controller.buscarSaborPizzaPorId(Long.parseLong(id));
 			  <input type="hidden" name="acao" value="editar" >
 			  <input type="hidden" name="id" value="<%= sabor.getId() %>" >
 			  
-			<select name="idTipoPizza" custom-select custom-select-lg mb-3">
+			<select name="idTipoPizza" class="custom-select custom-select-lg mb-3">
 			<% TipoPizzaController tpc = new TipoPizzaController();
-				List<TipoPizzaModel> lista = tpc.listarTudo();
+				List<TipoPizzaModel> listaTipos = tpc.listarTudo();
 				
-				for(TipoPizzaModel tipo : lista){%>
+				for(TipoPizzaModel tipo : listaTipos){%>
 					<option value="<%=tipo.getId()%>" <%=(tipo.getId()==sabor.getId())?"selected":""%> ><%=tipo.getNome()%></option>
 				<%}%>
 				
@@ -50,61 +53,90 @@ SaborPizzaModel sabor = controller.buscarSaborPizzaPorId(Long.parseLong(id));
 			  <input type="number" step="0.1" name="valorAdicional" class="form-control" value="<%= sabor.getValorAdicional() %>" >
 			 
  
-			<div class="col-md-12">
-			<br>Ingredientes
-			</div>			 
-			<div class="col-md-12">
-			<table class="table table-hover table-striped">
-				<thead>
-					<th>Ingrediente</th>
-					<th>Quantidade</th>
-					<th class="mw-200">Ação</th>
-				</thead>
-				<tbody>
-					<%
-					//if(lista != null)
-					//	for(BordaModel borda : lista) {
-					%>
-					<tr>
-						<td>
-							<% //out.print(borda.getNome()); %>
-							Mussarela
-						</td>
-						<td>
-							<% //out.print(borda.getValorAdicional()); %>
-							200 gramas
-						</td>
-						<td class="mw-200"><a
-							href="<#=request.getContextPath()#>/editarBorda.jsp?id=<#=borda.getId() #>"
-							class="btn btn-outline-primary btn-sm">Editar</a> <a
-							href="<#=request.getContextPath()#>/crudBorda?id=<#=borda.getId() #>&acao=excluirBorda"
-							onclick="return confirmacaoDelecao()" class="btn btn-outline-danger btn-sm">Excluir</a>
-						</td>
-					</tr>
-					<% //} %>
-				</tbody>
-
-			</table>
-		</div> 
+				<!--  -------------------------------------------- INGREDIENTES------------------------------------------- -->
+				<div class="col-md-12 text-right">
+					<br>Ingredientes <button type="button" class="btn btn-success" data-toggle="modal" data-target="#incluirIngredienteModal" id="btnIncluirIngrediente">Incluir Ingrediente</button>
+				</div>
 			 
-			 
-			 <select>
-			 <option>Ingred 1</option>
-			 <option>Ingred 2</option>
-			 </select>
-			 <a href="<#=request.getContextPath()#>/incluirIngredienteNaBorda.jsp"
-				class="btn btn-success">Incluir</a>
-			 
-			 <div>
-				<input type="button" onclick="history.back()" class="btn btn-default" value="Cancelar">	
-				<input type="submit" class="btn btn-primary" value="Salvar">
-			</div>
-			
+				<div class="col-md-12">
+					<table class="table table-hover table-striped">
+						<thead>
+							<th>Ingrediente</th>
+							<th>Quantidade</th>
+							<th class="mw-200">Ação</th>
+						</thead>
+						<tbody>
+							<% 
+							if(sabor.getListaIngredientes() != null && sabor.getListaIngredientes().size() != 0)
+								for(SaborPizzaIngredienteModel ingred : sabor.getListaIngredientes()) {
+							%>
+									<tr>
+										<input type="hidden" name="ingred" value="<%=ingred.getIngrediente().getId() + ";" + ingred.getQuantidade()%>">
+										<td><%=ingred.getIngrediente().getNome()%></td>
+										<td><%=ingred.getQuantidade() + " " + ingred.getIngrediente().getUnidadeMedida()%></td>
+										<td class="mw-200">
+											<input type='button'  class='btn btn-outline-primary btn-sm btnEdit' value='Editar'>
+											<input type="button" class="btn btn-outline-danger btn-sm btnDelete" value="Excluir">	
+											
+										</td>
+									</tr>
+								<%}%>
+						</tbody>
+		
+					</table>
+				</div>
+				<div class="row">
+					<input type="button" onclick="history.back()" class="btn btn-default" value="Cancelar">	
+					<input type="submit" class="btn btn-primary" value="Salvar">
+				</div>
 			</form> 
-
 		</div>
 	</div>
-	<div class="col-md-4"></div>
+
 </div>
 
+
+<!--  -------------------------------------------- MODAL --------------------------------------------------------------------------- -->
+<div class="modal fade" id="incluirIngredienteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Incluir Ingrediente</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="addIdIngrediente" class="col-form-label">Ingrediente:</label>
+            <select class="form-control custom-select" id="addIdIngrediente">
+			<% IngredienteController ic = new IngredienteController();
+				List<IngredienteModel> lista = ic.listarTudo();
+				
+				for(IngredienteModel ing : lista){%>
+					<option value="<%=ing.getId()%>"><%=ing.getNome()%></option>
+				<%}%>
+  			</select>
+          </div>
+          <div class="form-group">
+            <label for="addQuantidade" class="col-form-label">Quantidade:</label>
+            <input type="number" step=".01" id="addQuantidade" class="form-control" >
+            
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnModalCancelar">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnModalOk">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/scriptsIngredientes.js"></script>
 

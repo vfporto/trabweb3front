@@ -90,7 +90,7 @@ public class BordaController implements ControllerBase {
 			String valorAdicional = request.getParameter("valorAdicional");
 			
 			//Versao 1 (Funcionando) - Salva os dados do formulario e insere indivitualmente cada ingrediente
-/*			BordaModel borda = new BordaModel();
+			BordaModel borda = new BordaModel();
 			borda.setId(Long.parseLong(id));
 			borda.setNome(nome);
 			borda.setValorAdicional(Float.parseFloat(valorAdicional));
@@ -120,11 +120,11 @@ public class BordaController implements ControllerBase {
 				}
 			}
 			System.out.println("---------------------");
-*/		
+		
 
  			//Versao 2 - tentando salvar diretamente a borda completa, com a lista de ingredientes
 			//Aparentemente esta dando problemas de serializacao
-			
+/*			
 			BordaModel borda = new BordaModel();
 			borda.setId(Long.parseLong(id));
 			borda.setNome(nome);
@@ -145,9 +145,9 @@ public class BordaController implements ControllerBase {
 					borda.getListaIngredientes().add(aux);
 				}
 			}
-			System.out.println("---------------------");
 			alterarBorda(borda);
- 
+			System.out.println("---------------------");
+*/			
 		}
 
 		return paginaRedirecao;

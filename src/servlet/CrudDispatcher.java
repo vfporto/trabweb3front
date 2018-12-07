@@ -17,20 +17,23 @@ public class CrudDispatcher extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private void verificarAcao(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String parametro = request.getParameter("classe");
-		//System.out.println("\n-------- [dispatcher] parametro: "+parametro+" --------");
-		//System.out.println("-------- [dispatcher] acao.....: "+request.getParameter("acao")+" --------\n");
+		String parametroClasse = request.getParameter("classe");
+		
 		try {
-			Class<?> classe = Class.forName("controller."+parametro+"Controller");
+			
+			//Instanciando dinamicamente a controller responsavel, baseada no parametro "classe", passado pelo formulario
+			Class<?> classe = Class.forName("controller."+parametroClasse+"Controller");
 			ControllerBase controller = (ControllerBase) classe.newInstance();
 			
+			//Transfere para a controller a verificacao e execucao da Acao, definida no parametro "acao", passado pelo form.
 			String pagina = controller.executaAcao(request, response);
 			
-			//request.getRequestDispatcher(pagina).forward(request, response);
+			//Apos execucao da acao pela controller, redireciona para a pagina correta, definida pela Controller responsavel.
 			response.sendRedirect(request.getContextPath() + pagina);
 			
 		} catch (Exception e) {
-			throw new ServletException("Excecao: Nao foi possivel instanciar Class.forName('"+parametro+"Controller') ", e);
+			//TODO: Tratar a Exception e nao explodir uma...
+			throw new ServletException("Excecao: Nao foi possivel instanciar Class.forName('"+parametroClasse+"Controller') ", e);
 		}
 
 	}

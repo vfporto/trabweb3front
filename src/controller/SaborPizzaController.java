@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,6 +8,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.SaborPizzaIngredienteModel;
+import model.BordaModel;
 import model.IngredienteModel;
 import model.SaborPizzaIngredienteModel;
 import model.SaborPizzaModel;
@@ -41,6 +44,14 @@ public class SaborPizzaController implements ControllerBase {
 		rest.getObject(url, "PUT", null, saborPizza, queryParams);
 	}
 
+	public void incluirIngrediente(SaborPizzaIngredienteModel ingrediente) {
+		String url = Configuracao.apiUrl + "/saborPizzaIngrediente/salvar";
+		Map<String, Object> queryParams = new HashMap<String, Object>();
+		RESTConnectionV3 rest = new RESTConnectionV3();
+		rest.getObject(url, "POST", null, ingrediente, queryParams);
+	}
+	
+	
 	public SaborPizzaModel buscarSaborPizzaPorId(long id) {
 		this.url += "/buscar";
 		Map<String,Object> queryParams = new HashMap<String,Object>();
@@ -59,7 +70,8 @@ public class SaborPizzaController implements ControllerBase {
 	
 	@Override
 	public String executaAcao(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		/*	private TipoPizzaModel tipoPizza;
+		/*	ATRIBUTOS do Model
+		private TipoPizzaModel tipoPizza;
 		private String nome;
 		private double valorAdicional;
 		private String foto;
@@ -114,8 +126,35 @@ public class SaborPizzaController implements ControllerBase {
 			TipoPizzaModel tipoPizza = new TipoPizzaModel();
 			tipoPizza.setId(idTipoPizza);
 			sabor.setTipoPizza(tipoPizza);
+			sabor.setListaIngredientes(new ArrayList<>());
+			sabor.getListaIngredientes().clear();
 			
 			alterarSaborPizza(sabor);
+			
+			System.out.println("---------------------");
+			String[] listaIngred = request.getParameterValues("ingred");
+			if(listaIngred != null) {
+				for (String ingred : listaIngred) {
+					String[] item = ingred.split(";");
+					long idIng = Long.parseLong(item[0]);
+					double qtd = Double.parseDouble(item[1]);
+					
+					IngredienteModel ing = new IngredienteModel(idIng);
+					SaborPizzaModel sp = new SaborPizzaModel();
+					sp.setId(id);
+					
+					SaborPizzaIngredienteModel aux = new SaborPizzaIngredienteModel();
+					aux.setSaborPizza(sp);
+					aux.setIngrediente(ing);
+					aux.setQuantidade(qtd);
+					
+					this.incluirIngrediente(aux);
+					
+				}
+			}
+			System.out.println("---------------------");
+			
+			
 
 		}
 

@@ -25,7 +25,7 @@
 			  <input type="number" name="qtEstoque" class="form-control-sm" value="0" step=".01"><br>
 			 
 			  Unidade Medida : <br>
-			  <input type="number" name="unidadeMedida" class="form-control-sm" value="0" step=".01"><br>
+			  <input type="text" name="unidadeMedida" class="form-control-sm"><br>
 			  
 			  
 			  <br>

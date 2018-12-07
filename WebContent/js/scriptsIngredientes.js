@@ -82,6 +82,7 @@ function atualizaBotoes() {
 	    		 $('#btnModalOk').unbind('click');
 	    			$('#btnModalOk').click(function(){
 	    		    		$(this).editarLinha($botao);
+	    		    	$('#incluirIngredienteModal').modal('show: false');
 	    		    	return false;
 	    		    });
     		

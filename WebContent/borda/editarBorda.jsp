@@ -34,6 +34,8 @@ BordaModel borda = bordaCont.buscarBordaPorId(Long.parseLong(id));
 				Valor Adicional:
 				<input type="number" step=".01" name="valorAdicional" class="form-control" value="<%= borda.getValorAdicional() %>" >
 			 
+			 
+				<!--  -------------------------------------------- INGREDIENTES------------------------------------------- -->
 				<div class="col-md-12 text-right">
 					<br>Ingredientes <button type="button" class="btn btn-success" data-toggle="modal" data-target="#incluirIngredienteModal" id="btnIncluirIngrediente">Incluir Ingrediente</button>
 				</div>
@@ -47,7 +49,7 @@ BordaModel borda = bordaCont.buscarBordaPorId(Long.parseLong(id));
 						</thead>
 						<tbody>
 							<% 
-							if(borda.getListaIngredientes() != null)
+							if(borda.getListaIngredientes() != null && borda.getListaIngredientes().size() != 0)
 								for(BordaIngredienteModel ingred : borda.getListaIngredientes()) {
 							%>
 									<tr>
