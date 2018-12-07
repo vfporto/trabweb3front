@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BordaModel {
@@ -11,10 +12,12 @@ public class BordaModel {
 
 	public BordaModel() {
 		super();
+		listaIngredientes = new ArrayList<>();
 	}
 
 	public BordaModel(long id) {
 		super();
+		listaIngredientes = new ArrayList<>();
 		this.id = id;
 	}
 

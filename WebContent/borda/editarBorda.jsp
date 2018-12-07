@@ -55,7 +55,6 @@ BordaModel borda = bordaCont.buscarBordaPorId(Long.parseLong(id));
 										<td><%=ingred.getIngrediente().getNome()%></td>
 										<td><%=ingred.getQuantidade() + " " + ingred.getIngrediente().getUnidadeMedida()%></td>
 										<td class="mw-200">
-											<!-- <a href="#" class="btn btn-outline-warning btn-sm btnEdit">Editar</a> -->
 											<input type='button'  class='btn btn-outline-primary btn-sm btnEdit' value='Editar'>
 											<input type="button" class="btn btn-outline-danger btn-sm btnDelete" value="Excluir">	
 											
@@ -77,7 +76,7 @@ BordaModel borda = bordaCont.buscarBordaPorId(Long.parseLong(id));
 </div>
 
 
-
+<!--  -------------------------------------------- MODAL --------------------------------------------------------------------------- -->
 <div class="modal fade" id="incluirIngredienteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -108,8 +107,8 @@ BordaModel borda = bordaCont.buscarBordaPorId(Long.parseLong(id));
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnIncluir">Incluir</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnModalCancelar">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnModalOk">OK</button>
       </div>
     </div>
   </div>
@@ -119,59 +118,6 @@ BordaModel borda = bordaCont.buscarBordaPorId(Long.parseLong(id));
 
 
 
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/scriptsIngredientes.js"></script>
 
-<script>
-function atualizaBotoes() {
-	//Excluir a linha de um ingrediente (só vai persistir se/quando salvar a borda)
-    $('.btnDelete').unbind('click');
-	$('.btnDelete').click(function(){
-    		$(this).parents('tr').remove();
-    	return false;
-    });
-	
-	$('.btnEdit').unbind('click');
-    $('.btnEdit').click(function(){
-    		var item = $(this).parents('tr').find('input[type="hidden"]').val().split(';');
-    		
-    		$('#addIdIngrediente').val(item[0]);
-    		$('#addQuantidade').val(item[1]);
-    		$('#incluirIngredienteModal').modal('show');
-    	return true;
-    });
-	
-}
-$(document).ready(function(){
-	atualizaBotoes();
-
-	$('#btnIncluir').unbind('click');
-	$('#btnIncluir').click(function(){
-		var ingredId = $('#addIdIngrediente').val();
-		var ingredNome = $( '#addIdIngrediente option:selected' ).text();
-		var qtd = $('#addQuantidade').val();
-		
-		var linha = "<tr><input type='hidden' name='ingred' value='"+ingredId + ";"+ qtd +"'>"
-					+ "<td>" + ingredNome +"</td>"
-					+ "<td>" + qtd + " gramas" + "</td> <td class='mw-200'>"
-					+ "<input type='button'  class='btn btn-outline-warning btn-sm btnEdit' value='Editar'>"
-					+ "<input type='button'  class='btn btn-outline-danger btn-sm btnDelete' value='Excluir'> </td></tr>";	
-		$("table tbody").append(linha);
-		atualizaBotoes();
-		
-		
-		
-	});
-	
-	$("#incluirIngredienteModal").on('hidden.bs.modal', function () {
-		$('#addQuantidade').val('');
-		$('#addIdIngrediente').val('');
-		atualizaBotoes();
-});
-	
-	$('#btnIncluirIngrediente').click(function(){
-        $('#incluirIngredienteModal').modal('show');
-    });
-	
-	
-});
-</script>
 

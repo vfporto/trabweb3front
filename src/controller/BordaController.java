@@ -28,7 +28,7 @@ public class BordaController implements ControllerBase {
 	public void salvarBorda(BordaModel borda) {
 		Map<String, Object> queryParams = new HashMap<String, Object>();
 		RESTConnectionV3 rest = new RESTConnectionV3();
-		rest.getObject(url+"/bordaIngrediente/salvar", "POST", null, borda, queryParams);
+		rest.getObject(url+"/salvar", "POST", null, borda, queryParams);
 	}
 	
 	public void incluirIngrediente(BordaIngredienteModel ingrediente) {
@@ -88,8 +88,9 @@ public class BordaController implements ControllerBase {
 			String id = request.getParameter("id");
 			String nome = request.getParameter("nome");
 			String valorAdicional = request.getParameter("valorAdicional");
-
-			BordaModel borda = new BordaModel();
+			
+			//Versao 1 (Funcionando) - Salva os dados do formulario e insere indivitualmente cada ingrediente
+/*			BordaModel borda = new BordaModel();
 			borda.setId(Long.parseLong(id));
 			borda.setNome(nome);
 			borda.setValorAdicional(Float.parseFloat(valorAdicional));
@@ -119,8 +120,34 @@ public class BordaController implements ControllerBase {
 				}
 			}
 			System.out.println("---------------------");
-			
+*/		
 
+ 			//Versao 2 - tentando salvar diretamente a borda completa, com a lista de ingredientes
+			//Aparentemente esta dando problemas de serializacao
+			
+			BordaModel borda = new BordaModel();
+			borda.setId(Long.parseLong(id));
+			borda.setNome(nome);
+			borda.setValorAdicional(Float.parseFloat(valorAdicional));
+
+			System.out.println("---------------------");
+			String[] listaIngred = request.getParameterValues("ingred");
+			if (listaIngred != null) {
+				for (String ingred : listaIngred) {
+					String[] item = ingred.split(";");
+
+				
+					BordaIngredienteModel aux = new BordaIngredienteModel();
+					aux.setBorda(new BordaModel(borda.getId()));
+					aux.setIngrediente(new IngredienteModel(Long.parseLong(item[0])));
+					aux.setQuantidade(Double.parseDouble(item[1]));
+
+					borda.getListaIngredientes().add(aux);
+				}
+			}
+			System.out.println("---------------------");
+			alterarBorda(borda);
+ 
 		}
 
 		return paginaRedirecao;
